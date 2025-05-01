@@ -1,3 +1,4 @@
+@file:JvmName("Functions") // We can set the name of .class
 package basic
 
 import kotlin.math.abs
@@ -11,10 +12,9 @@ fun greet(name: String): Unit { // Adding Unit is optional
 
 
 //A function with two Int parameters and Int return type:
-fun sum(x: Int, y: Int): Int {
-    return x + y
-}
-
+//fun sum(x: Int, y: Int): Int {
+//    return x + y
+//}
 
 // Generic Fun
 fun <T1, T2> genericFun(x: T1, y: T2) {
@@ -27,6 +27,13 @@ fun sub(x: Int, y: Int) = abs(x - y)
 
 
 // Default Args
+@JvmOverloads
+// While Calling From Java, It Expects Us To Provide The Default Value also.
+// Hence, This Annotation Creates
+fun sum(x: Int, y: Int, z: Int = 0): Int { // Overloading Is Possible
+    return x + y + z
+}
+
 fun powerOf(number: Double, exponent: Int = 2) = number.pow(exponent)
 
 
@@ -71,6 +78,4 @@ fun main() {
     println("Power of number 2 without exp : ${powerOf(2.0)}")
 
     addStudent(1, "Sabari", dob="05/02/2002", parentName = "Murugan")
-
-
 }

@@ -145,7 +145,7 @@ fun scopeDemo() {
 }
 
 // PART 8: TYPE ALIASES
-typealias UserMap = Map<String, User>  // Creating type alias for complex types
+typealias UserMap = Map<String, InterOperable>  // Creating type alias for complex types
 typealias Matrix = Array<Array<Int>>   // Creating type alias for nested arrays
 
 // Usage of the typealiases would be:
