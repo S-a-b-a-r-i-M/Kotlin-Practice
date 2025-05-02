@@ -57,6 +57,7 @@ fun main() {
 //  Reason: In Kotlin, you must specify each variable separately with var or val.
 //          Kotlin does not allow multiple variable declarations in a single line with a shared var.
 
+    // Variables declared without initialization
     var b: Int
     var a: Int
 

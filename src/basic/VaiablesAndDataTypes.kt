@@ -88,9 +88,9 @@ fun main() {
     val isAuthenticated = true            // Type inference
 
     // Boolean operators
-    val result = isCompleted || isAuthenticated  // Logical OR
-    val andResult = isCompleted && isAuthenticated  // Logical AND
-    val notResult = !isAuthenticated      // Logical NOT
+    val result = isCompleted || isAuthenticated  // Logical OR (disjunction)
+    val andResult = isCompleted && isAuthenticated  // Logical AND (conjunction)
+    val notResult = !isAuthenticated      // Logical NOT (negation)
 
     println("OR result: $result, AND result: $andResult, NOT result: $notResult")
 
