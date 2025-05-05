@@ -1,7 +1,7 @@
 package basic
 
 // Compile-time constants (must be initialized with a value known at compile time)
-const val API_KEY = "abcd1234"        // Only allowed at top level or in objects
+const val API_KEY = "abed1234"  // Only allowed at top level or in objects
 const val MAX_ATTEMPTS = 3
 
 // TYPE CONVERSION

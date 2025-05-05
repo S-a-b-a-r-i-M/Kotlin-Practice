@@ -1,7 +1,5 @@
 package intermediate
 
-import java.text.Bidi
-
 // Creating Normal Class
 // Note: If the primary constructor does not have any annotations or visibility modifiers,
 // the constructor keyword can be omitted
@@ -42,7 +40,6 @@ class Student constructor(
 
 open class Vehicle(val brand: String = "", val model: String = ""){
     var color: String = ""
-    var list = mutableListOf<Int>()
 
     constructor(brand: String, model: String, color: String) : this(brand,model){
         this.color = color
@@ -62,6 +59,20 @@ open class Vehicle(val brand: String = "", val model: String = ""){
 }
 
 
+// Class without primary constructor
+class Bike{
+    var model = ""
+    var brand = ""
+    var year = 0
+
+    constructor(model: String, brand: String, year: Int){
+        this.model = model
+        this.brand = brand
+        this.year = year
+    }
+}
+
+
 fun main() {
     // STUDENT CLASS
     /*
@@ -73,6 +84,9 @@ fun main() {
      */
 
     // VEHICLE CLASS
-    val bike = Vehicle("Bajaj", "Pulsar-150", "Blue with Black")
-    println("Bike details --> ${bike}")
+    val vehicle = Vehicle("Maruti", "ertica", "Blue with Black")
+    println("Bike details --> ${vehicle}")
+
+    // BIKE CLASS
+    val pulsar = Bike(model = "pulsar-150", brand = "Bajaj", year = 2024)
 }
