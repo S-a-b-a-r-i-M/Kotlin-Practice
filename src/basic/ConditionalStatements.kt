@@ -44,7 +44,7 @@ fun practiceWhen(){
     when (num) {
         5, 10 -> println("number is divisible by only 5") // More than one case
         15 -> println("number is divisible by 5 and 3")
-        else -> println("something else")
+        else -> println ("something else")
     }
 
     // As an Expression with branch expression and subject

@@ -22,7 +22,7 @@ fun <T1, T2> genericFun(x: T1, y: T2) {
 }
 
 
-//A function body can be an expression. Its return type is inferred:
+//A function body can be an expression. Its return type is inferred
 fun sub(x: Int, y: Int) = abs(x - y)
 
 
@@ -35,7 +35,6 @@ fun sum(x: Int, y: Int, z: Int = 0): Int { // Overloading Is Possible
 }
 
 fun powerOf(number: Double, exponent: Int = 2) = number.pow(exponent)
-
 
 // Named argument
 fun addStudent(
@@ -55,7 +54,7 @@ fun main() {
 
 //  var a, b --> Not Valid
 //  Reason: In Kotlin, you must specify each variable separately with var or val.
-//          Kotlin does not allow multiple variable declarations in a single line with a shared var.
+//          Kotlin does not allow multiple variable declarations in a single line with a shared var/val.
 
     // Variables declared without initialization
     var b: Int

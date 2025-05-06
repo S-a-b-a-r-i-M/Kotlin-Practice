@@ -11,7 +11,7 @@ fun iterateUsingFor() {
     var nums = 1..7
     println("Nums from 1 to 7 : $nums, Count of numbers: ${nums.count()}, All numbers ${nums.joinToString()}")
     println("\nAll numbers using for-each")
-    nums.forEach { println(it) }
+    nums.forEach{ num -> println(num) }
 
     println("\nstart and end includes : ")
     for (i in 1..6) print("$i, ")

@@ -1,16 +1,19 @@
 package basic
 
+// Note: All the arrays are fixed-size arrays in Kotlin. Once an array is created, its size cannot be changed.
+
 fun creationOfArray(){
     // Creation
     /* To create arrays in Kotlin, we can use:
      * functions, such as arrayOf(), arrayOfNulls() or emptyArray()
-     * the Array constructor.
+     * or the Array constructor.
      */
     // 1. arrayOf(val1, val2, val3, ... )
     var colors: Array<String> = arrayOf("Red", "Blue", "Green")
     println("colors array using arrayOfNulls : ${colors.joinToString(" - ")}")
 
     println("Before adding new element $colors")
+    colors[3] = "Yellow"
     // Adding an element will create a new array, and it will assign in (behind the scene)
     colors += "Violet"
     println("After added new element $colors\n") // You can notice the memory changes
@@ -31,8 +34,22 @@ fun creationOfArray(){
     var arrayCon = Array(3) {"A"}
     println("arrayCon array using Array Constructor : ${arrayCon.joinToString()}\n")
 
-    var numbers = Array(3) {i -> i * i}
+    var nums = Array(3) { i -> i * i }
     println("numbers array using Array Constructor : ${arrayCon.joinToString()}\n")
+
+    // For primitive types (specialized arrays)
+//    val numbers = intArrayOf(1, 2, 3, 4, 5)
+    val numbers = IntArray(5)
+    val bytes = byteArrayOf(1, 2, 3)
+    val shorts = shortArrayOf(1, 2, 3)
+    val longs = longArrayOf(1L, 2L, 3L)
+    val floats = floatArrayOf(1.0f, 2.0f, 3.0f)
+    val doubles = doubleArrayOf(1.0, 2.0, 3.0)
+    val booleans = booleanArrayOf(true, false, true)
+    val chars = charArrayOf('a', 'b', 'c')
+
+    // Using The Array Constructors Directly
+    IntArray(1)
 }
 
 
@@ -43,7 +60,7 @@ fun modificationOfArray(){
 
 
 fun main() {
-//    creationOfArray()
+    creationOfArray()
 
-    modificationOfArray()
+//    modificationOfArray()
 }

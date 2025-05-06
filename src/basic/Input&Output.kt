@@ -7,7 +7,7 @@ fun inputAndOutput(){
 //    val name2 = readLine() // A bit of java way. it can return null
 //    println("Given name2: $name2")
 
-    val initial: Char = readln().get(0)
+    val initial: Char = readln()[0]
     println("Given name: $name.$initial")
 
     val age = readln().toInt()
