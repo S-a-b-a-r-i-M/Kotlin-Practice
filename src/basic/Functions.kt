@@ -34,6 +34,11 @@ fun sum(x: Int, y: Int, z: Int = 0): Int { // Overloading Is Possible
     return x + y + z
 }
 
+// Function Overloading works as like Java
+fun sum(x: Double, y: Double): Double {
+    return x + y
+}
+
 fun powerOf(number: Double, exponent: Int = 2) = number.pow(exponent)
 
 // Named argument

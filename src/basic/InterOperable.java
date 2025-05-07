@@ -14,6 +14,10 @@ public class InterOperable {
         this.name = name;
     }
 
+    public void sing(String song, Double duration){
+        System.out.println("Singing songuu...");
+    }
+
     public static void main(String[] args){
         // Calling Kotlin function
         // By default, all the global functions in kotlin are static
