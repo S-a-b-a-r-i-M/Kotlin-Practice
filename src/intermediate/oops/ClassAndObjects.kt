@@ -1,4 +1,4 @@
-package intermediate
+package intermediate.oops
 
 // Creating Normal Class
 // Note: If the primary constructor does not have any annotations or visibility modifiers,
@@ -58,18 +58,36 @@ open class Vehicle(val brand: String = "", val model: String = ""){
     }
 }
 
-
 // Class without primary constructor
 class Bike{
     var model = ""
     var brand = ""
     var year = 0
 
+    init {
+        println("Bike initializers")
+    }
+
     constructor(model: String, brand: String, year: Int){
         this.model = model
         this.brand = brand
         this.year = year
+        println("Bike secondary constructor")
     }
+}
+
+// GETTERS & SETTERS
+class Person(val fName: String, val lName: String){
+    var fullName = fName + lName
+        get() {
+            println("Getter is invoked full-name")
+            // return fullName // Will Make StackOVerFlow
+            return field
+        }
+        set(value) {
+            println("Setter is invoked full-name")
+            field = value // Backing fields - https://kotlinlang.org/docs/properties.html#backing-fields
+        }
 }
 
 
@@ -81,12 +99,22 @@ fun main() {
 
     val student2 = Student(id = 2, name = "Arasu")
     student2.display()
-     */
+    */
 
     // VEHICLE CLASS
-    val vehicle = Vehicle("Maruti", "ertica", "Blue with Black")
-    println("Bike details --> ${vehicle}")
-
-    // BIKE CLASS
+//    val vehicle = Vehicle("Maruti", "ertica", "Blue with Black")
+//    println("Bike details --> ${vehicle}")
+//
+//    // BIKE CLASS
     val pulsar = Bike(model = "pulsar-150", brand = "Bajaj", year = 2024)
+
+    // Example of GET & SET
+    /*
+    val sabari = Person("Sabari", "Murugan")
+    println("Sabari's Full-name ${sabari.fullName}")
+    sabari.fullName = "Sabari M"
+    println("Sabari's Full-name ${sabari.fullName}")
+     */
+
+
 }
