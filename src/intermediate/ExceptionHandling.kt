@@ -4,6 +4,8 @@ package intermediate
 
 class AgeEligibilityException (message: String) : Exception(message)
 
+class ResourceNotFoundError (message: String) : Exception(message)
+
 fun canIVote(age: Int){
     require(age > 0)
 
