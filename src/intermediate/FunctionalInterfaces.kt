@@ -1,4 +1,4 @@
-package intermediate.oops
+package intermediate
 
 fun interface Greeter {
     fun greet(name: String): String

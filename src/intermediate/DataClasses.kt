@@ -1,4 +1,4 @@
-package intermediate.oops
+package intermediate
 
 /* Requirements For Data Class,
  * 1. Data class must have at least one primary constructor parameter.

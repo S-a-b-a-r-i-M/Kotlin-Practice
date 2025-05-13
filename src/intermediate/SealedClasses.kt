@@ -1,6 +1,4 @@
-package intermediate.oops
-
-import intermediate.ResourceNotFoundError
+package intermediate
 
 sealed class SealedResult<out T> {
     data class Success<T>(val data: T): SealedResult<T>()

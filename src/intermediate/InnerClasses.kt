@@ -1,4 +1,4 @@
-package intermediate.oops
+package intermediate
 
 class Outer {
     private val outerValue = 10
@@ -29,5 +29,6 @@ fun main() {
     // Creating inner class instance (requires Outer instance)
     val outer = Outer()
     val inner = outer.InnerClass()
+    val inner2 = outer.InnerClass()
     inner.printValue()
 }

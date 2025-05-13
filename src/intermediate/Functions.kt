@@ -4,7 +4,7 @@ import basic.InterOperable
 import javax.xml.stream.events.Characters
 
 // OVERRIDING METHODS ALWAYS USE THE BASE METHOD'S DEFAULT PARAMETER VALUES.
-/*
+
 open class Animal {
     // NOTE: by default class and functions are public and final
     open fun eat(food: String = "gross"){
@@ -18,7 +18,7 @@ class Goat : Animal() {
         println("Goat eating $food")
     }
 }
- */
+
 
 fun sing(song: String, duration: Double) {
     println("Singing songuu...")
@@ -43,12 +43,12 @@ fun main() {
     */
 
     // NAMED ARGUMENTS WON'T WORK WHILE CALLING JAVA FUNCTIONS
-    /*
+
     val interOperable = InterOperable()
     //interOperable.sing(song="Why this kolaveri", duration=3.50) // ERROR: Named arguments are prohibited for non-Kotlin functions.
     interOperable.sing("Why this kolaveri", 3.50)
     sing(song = "Naan Pollathvan", duration = 3.5)
-     */
+
 
     //outer(123)
     println("EXTENSION FUNCTION IS USEFUL".capitalize())

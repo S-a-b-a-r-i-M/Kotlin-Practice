@@ -2,7 +2,6 @@ package basic;
 
 
 public class InterOperable {
-
     private String name;
 
     public String getName() {
