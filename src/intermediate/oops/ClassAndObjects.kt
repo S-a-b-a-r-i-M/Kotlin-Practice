@@ -64,7 +64,15 @@ class Bike{
     var brand = ""
     var year = 0
 
+    // STATIC
+    companion object {
+        var bikeCount = 0
+
+        fun getTotalBikeCount() = bikeCount
+    }
+
     init {
+        bikeCount++;
         println("Bike initializers")
     }
 
@@ -107,7 +115,7 @@ fun main() {
 //
 //    // BIKE CLASS
     val pulsar = Bike(model = "pulsar-150", brand = "Bajaj", year = 2024)
-
+    println("Total Bike Count From Static Method: ${Bike.getTotalBikeCount()}")
     // Example of GET & SET
     /*
     val sabari = Person("Sabari", "Murugan")
