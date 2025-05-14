@@ -26,6 +26,12 @@ class Student constructor(
         println("A class can have more than one initializers")
     }
 
+    companion object {
+        init {
+            println("Companion Object initialized")
+        }
+    }
+
     // Secondary Constructor
     // Note: 'val' on secondary constructor parameter is prohibited.(we can't create properties)
     constructor(id: Int, name: String): this(id, name, 10){
@@ -58,17 +64,25 @@ open class Vehicle(val brand: String = "", val model: String = ""){
     }
 }
 
+interface Count {
+    fun getTotalCount(): Int
+}
+
 // Class without primary constructor
 class Bike{
     var model = ""
     var brand = ""
     var year = 0
 
-    // STATIC
-    companion object {
+    // COMPANION OBJECT
+    companion object: Count { // It can implements interface
+        init {
+            println("Companion object initialized...")
+        }
+
         var bikeCount = 0
 
-        fun getTotalBikeCount() = bikeCount
+        override fun getTotalCount() = bikeCount
     }
 
     init {
@@ -115,7 +129,8 @@ fun main() {
 //
 //    // BIKE CLASS
     val pulsar = Bike(model = "pulsar-150", brand = "Bajaj", year = 2024)
-    println("Total Bike Count From Static Method: ${Bike.getTotalBikeCount()}")
+//    Bike.Companion.getTotalCount()
+//    println("Total Bike Count From Static Method: ${Bike.getTotalCount()}")
     // Example of GET & SET
     /*
     val sabari = Person("Sabari", "Murugan")
@@ -123,6 +138,4 @@ fun main() {
     sabari.fullName = "Sabari M"
     println("Sabari's Full-name ${sabari.fullName}")
      */
-
-
 }

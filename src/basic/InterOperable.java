@@ -1,5 +1,36 @@
 package basic;
 
+import intermediate.oops.Car;
+import org.jetbrains.annotations.NotNull;
+
+class EvCar implements Car {
+
+    @Override
+    @NotNull
+    public String getModel() {
+        return "";
+    }
+
+    @Override
+    public void stop() {
+
+    }
+
+    @Override
+    public void setModel(@NotNull String s) {
+
+    }
+
+    @Override
+    public void start() {
+
+    }
+
+    @Override
+    public void fillFuel() {
+
+    }
+}
 
 public class InterOperable {
     private String name;
@@ -26,5 +57,10 @@ public class InterOperable {
         // Calling A Function Which Has Default value Params
         int sum = Functions.sum(5, 6);
         System.out.println("Sum of 5 and 6 : " + sum);
+
+        // INTERFACE FROM KOTLIN
+        EvCar evCar = new EvCar();
+//        evCar.stop();
+        System.out.println(evCar.getModel());
     }
 }
