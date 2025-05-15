@@ -8,8 +8,14 @@ class Outer {
         fun printValue() {
             // This would cause a compilation error:
             // println(outerValue)
-
+            start()
             println("Nested class cannot access outer class members")
+        }
+    }
+
+    companion object {
+        fun start(){
+
         }
     }
 
@@ -18,6 +24,11 @@ class Outer {
         fun printValue() {
             println("Inner class can access outer value: $outerValue")
         }
+    }
+
+    fun demo(){
+        start()
+        println("I can call start method")
     }
 }
 
