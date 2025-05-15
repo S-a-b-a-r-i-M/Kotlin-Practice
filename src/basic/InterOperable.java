@@ -60,7 +60,7 @@ public class InterOperable {
 
         // INTERFACE FROM KOTLIN
         EvCar evCar = new EvCar();
-//        evCar.stop();
+//        evCar.crackers.stop();
         System.out.println(evCar.getModel());
     }
 }

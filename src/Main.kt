@@ -1,5 +1,5 @@
 
-// This basic.main function is the entry point of Kotlin.
+// This basic.crackers.main function is the entry point of Kotlin.
 
 // Cmd + E -> Recent files
 // Cmd + Ctrl + G -> multi line

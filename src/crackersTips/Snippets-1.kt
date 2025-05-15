@@ -1,4 +1,4 @@
-
+package crackersTips
 // 1. LEXICAL SCOPE PRIORITY
 /*
   In Kotlin, when a function is called without a qualifier (like this. or a class name),
@@ -9,7 +9,7 @@
       4. Imported functions
  */
 /*
-fun main() {
+fun crackers.main() {
     fun printLine() { println("Local function") }
 
     class A {

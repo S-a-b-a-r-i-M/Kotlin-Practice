@@ -13,7 +13,7 @@ interface Car { // By default, interfaces are "PUBLIC"
     fun start()
     fun stop(){
         this.model = "Audi"
-        println("Default implementation for stop inside Car($model)")
+        println("Default implementation for crackers.stop inside Car($model)")
     }
     fun fillFuel()
 }
@@ -23,7 +23,7 @@ interface Robot {
 
     fun start()
     fun stop(){ // By default, implemented methods are "open"
-        println("Default implementation for stop inside Robot($name)")
+        println("Default implementation for crackers.stop inside Robot($name)")
     }
     fun charge()
 }
@@ -70,7 +70,7 @@ private class EvCar(override var model: String) : Car {
 ////        JavaCar.brand
 //    }
 //
-//    override fun stop() {
+//    override fun crackers.stop() {
 //        TODO("Not yet implemented")
 //    }
 //}
@@ -86,5 +86,5 @@ fun main() {
     val evCar = EvCar("BMW")
     println("Model of my evCar ${evCar.model}")
     evCar.stop()
-    println("Model of my evCar after stop ${evCar.model}")
+    println("Model of my evCar after crackers.stop ${evCar.model}")
 }
