@@ -2,7 +2,17 @@ package advance
 
 import kotlin.properties.Delegates
 
+class Publisher {
+    fun publish(topic: String, message: Any){
+        println("$topic is published")
+    }
+}
+
 class DelegationProperties {
+    private val publisher: Publisher by lazy {
+        Publisher()
+    }
+
     val lazyTopic: String by lazy {
         println("First Access as a member variable")
         "Delegation Property - Class"
@@ -11,6 +21,7 @@ class DelegationProperties {
     var observableSubscriber: String by Delegates.observable("") {
             property, oldValue, newValue ->
         println("$property changed from $oldValue to $newValue")
+        publisher.publish("observableSubscriber Changed", observableSubscriber)
     }
 
     val currentSubscriberSurName: String
@@ -59,6 +70,6 @@ fun main() {
     println("\n*************** OBSERVABLE *****************")
 
     delegationProperties.observableSubscriber = "Sabari"
-
+    delegationProperties.observableSubscriber = "Arasu"
     println()
 }

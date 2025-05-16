@@ -1,24 +1,37 @@
 package advance
 
 interface MusicInstrument {
-    fun play()
-    fun playLoudly()
+    fun makeSound()
+    fun changeTune()
 }
 
 class Piano : MusicInstrument {
-    override fun play() {
+    private var isPedalsPressed = false
+
+    override fun makeSound() {
          println("piano...piano")
     }
 
-    override fun playLoudly() {
-        println("Piano is getting loud...")
-        play()
-        println("Piano got louder!!!")
+    override fun changeTune() {
+        println("Piano tune is getting changed...")
+        makeSound()
+        println("Piano tune set!!!")
+    }
+
+    // Functions specific to piano
+    fun pressPedals() {
+        isPedalsPressed = true
+        println("Pedals are pressed")
+    }
+
+    fun releasePedals() {
+        isPedalsPressed = false
+        println("Pedals are released")
     }
 }
 
 class Delegate(instrument: MusicInstrument) : MusicInstrument by instrument {
-    override fun play() {
+    override fun makeSound() {
         println("delegate...delegate")
     }
 }
@@ -29,16 +42,16 @@ class ModernPiano : MusicInstrument by Piano() {
 
 fun main() {
     val piano: MusicInstrument = Piano()
-    piano.play()
+    piano.makeSound()
 
     println()
 
     val delegate = Delegate(piano)
-    delegate.play()
-    delegate.playLoudly() // delegate only has access to its own implementations, not the overriding ones from the delegating class.
+    delegate.makeSound()
+    delegate.changeTune() // delegate only has access to its own implementations, not the overriding ones from the delegating class.
 
     println()
 
     val modernPiano = ModernPiano()
-    modernPiano.play()
+    modernPiano.makeSound()
 }

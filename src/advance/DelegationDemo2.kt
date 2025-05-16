@@ -21,7 +21,7 @@ We want to have only MutableList's functions overridden by ArrayList and our own
 /*
 When they say "this approach is not good for abstraction," they're referring to a fundamental principle in
 object-oriented design: a class should expose only what's necessary for its intended purpose and hide implementation details.
-By extending ArrayList, they would be creating what's called a "is-a" relationship.
+By extending ArrayList, they would be creating what's called "is-a" relationship.
 Their RecoverableList would be an ArrayList, which brings several problems.
 
 Why "Delegation" Is Better:
@@ -36,7 +36,7 @@ create more maintainable and flexible code.
 class RecoverableList<T> (
     private val delegateList: MutableList<T> = ArrayList<T>()
 ): MutableList<T> by delegateList {
-    val deletedElements = LinkedList<T>()
+    val deletedElements = LinkedList<T>() // Using as a queue
 
     private fun addElementToTrash(element: T) {
         if (deletedElements.size >= 10)
@@ -54,9 +54,9 @@ class RecoverableList<T> (
         return false
     }
 
-    fun recoverDeleted(): T? = if(deletedElements.isEmpty()) null else deletedElements.removeLast()
+    fun recoverRecentElement(): T? = if(deletedElements.isEmpty()) null else deletedElements.removeLast()
 
-    fun recoverDeletedElements(): List<T> = TODO("Neram vara villai")
+    fun recoverAll(): List<T> = TODO("Neram vara villai")
 }
 
 fun main() {
@@ -68,7 +68,7 @@ fun main() {
     recoverableList.remove(20)
     println("After removed 20 from list: ${recoverableList.joinToString()}")
 
-    val deletedElement = recoverableList.recoverDeleted()
+    val deletedElement = recoverableList.recoverRecentElement()
     if (deletedElement != null){
         recoverableList.add(deletedElement)
         println("After recovery: ${recoverableList.joinToString()}")
