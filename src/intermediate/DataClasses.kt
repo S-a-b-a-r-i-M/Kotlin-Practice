@@ -63,4 +63,10 @@ fun main() {
 
     // returning two values from a function
     val (result, status) = function()
+
+    // Iterating with Destructuring
+    println("\n-------------Iterating with Destructuring-------------")
+    val userList = listOf<UserData>(userData, userData2, userData3)
+    for((n, a) in userList)
+        println("Name: $n Age: $a")
 }

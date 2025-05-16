@@ -13,7 +13,7 @@ fun creationOfArray(){
     println("colors array using arrayOfNulls : ${colors.joinToString(" - ")}")
 
     println("Before adding new element $colors")
-    colors[3] = "Yellow"
+    // colors[3] = "Yellow" // ERROR: Index range out
     // Adding an element will create a new array, and it will assign in (behind the scene)
     colors += "Violet"
     println("After added new element $colors\n") // You can notice the memory changes
@@ -28,7 +28,7 @@ fun creationOfArray(){
     println("Mixed type of elements in single array : ${mixedArrays.joinToString(limit = 2)}\n")
 
     // 2. arrayOfNulls
-    var nullValues = arrayOfNulls<Int>(5)
+    var nullValues = arrayOfNulls<Int?>(5)
     println("nullValues array using arrayOfNulls : ${nullValues.joinToString()}\n")
 
     // 3. emptyArray
@@ -85,14 +85,14 @@ fun twoDimensional(){
         println(num.joinToString())
 
     // Three Dimensional
-    val threeDimensional = Array(2) { Array(2) { Array<Int>(2) {0} } }
+    val threeDimensional = Array<Array<Array<Int>>>(2) { Array(2) { Array(2) {0} } }
 }
 
 
 fun main() {
-//    creationOfArray()
+    creationOfArray()
 
 //    modificationOfArray()
 
-    twoDimensional()
+//    twoDimensional()
 }

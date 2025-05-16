@@ -1,7 +1,6 @@
 package intermediate
 
 import basic.InterOperable
-import javax.xml.stream.events.Characters
 
 // OVERRIDING METHODS ALWAYS USE THE BASE METHOD'S DEFAULT PARAMETER VALUES.
 
@@ -43,7 +42,6 @@ fun main() {
     */
 
     // NAMED ARGUMENTS WON'T WORK WHILE CALLING JAVA FUNCTIONS
-
     val interOperable = InterOperable()
     //interOperable.sing(song="Why this kolaveri", duration=3.50) // ERROR: Named arguments are prohibited for non-Kotlin functions.
     interOperable.sing("Why this kolaveri", 3.50)

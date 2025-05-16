@@ -1,4 +1,4 @@
-package basic
+package crackersTips
 
 val districts = arrayOf("Karur",  "Chennai", "Trichy")
 

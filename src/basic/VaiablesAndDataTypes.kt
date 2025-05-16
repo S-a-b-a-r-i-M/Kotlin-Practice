@@ -32,6 +32,7 @@ fun main() {
     var score = 100          // Type inference: Int
     var isActive: Boolean = true  // Explicit type declaration
     score = 150              // Works fine - var can be reassigned
+    isActive = !true
     // score = "High"        // ERROR: Type mismatch - cannot assign String to Int
 
     println("Name: $name, Age: $age, Score: $score, Active: $isActive")

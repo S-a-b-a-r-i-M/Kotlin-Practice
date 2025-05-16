@@ -16,7 +16,7 @@ fun main() {
     val nums = listOf(1, 2, 3, 4, 5)
 
       // Filter fun with lambda
-    val evens = nums.filter { num -> num % 2 == 0 } // Without implicit param
+    val evens = nums.filter { num -> num % 2 == 0 } // With explicit param
     val odds = nums.filter { it % 2 != 0 } // With implicit param
 
     println("Odds are $odds and Evens are $evens")
@@ -47,12 +47,13 @@ fun main() {
 
     // 6. Higher-Order Functions with Lambdas
     fun operateOnNumbers(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+        // Other task
         return operation(a, b)
     }
 
     val result1 = operateOnNumbers(5, 3) { x, y -> x + y }  // Addition
     val result2 = operateOnNumbers(5, 3) { x, y -> x * y }  // Multiplication
 
-    println("Addition result: $result1")  // Output: Addition result: 8
+    println("\nAddition result: $result1")  // Output: Addition result: 8
     println("Multiplication result: $result2")  // Output: Multiplication result: 15
 }

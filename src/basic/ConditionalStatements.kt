@@ -13,6 +13,8 @@ fun practiceIfElse(){
     else
         println("Max is $b")
 
+    // println("Max is ${if(a > b) a else b}")
+
     println()
     // As Expression
     println("As Expression -------------------> ")
@@ -20,7 +22,7 @@ fun practiceIfElse(){
     println("Max of 2 $max")
     max = if (a > b && a > 10) a else if (b > 10) b else 10
     println("Max of 3 $max")
-    // Branches of an if expression can be blocks.The last expression is the value of a block:
+    // Branches of an if expression can be blocks.The last expression is the return value of a block
     max = if (a > b) {
         if (a <= 100){
             println("a is lesser than or equal to 100")
