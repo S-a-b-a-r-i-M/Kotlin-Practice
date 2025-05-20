@@ -9,7 +9,7 @@ data class Product(val id: Int, var name: String, var price: Double)
 data class User(val id: Int, var name: String, var address: String?)
 
 class Inventory {
-    fun isStockAvailabe(productId: Int, quantity: Int): Boolean {
+    fun isStockAvailable(productId: Int, quantity: Int): Boolean {
         println("Stock is available")
         return true
     }
@@ -46,7 +46,7 @@ class ProductFacade {
         if (fraudDetection.isUserFraud(user))
             throw IllegalStateException("User is fraud")
 
-        if (!inventory.isStockAvailabe(product.id, 1))
+        if (!inventory.isStockAvailable(product.id, 1))
             throw OutOfStockException("out of stock")
 
         if (!payment.makePayment(product.price))
