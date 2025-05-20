@@ -4,8 +4,12 @@
 // Cmd + E -> Recent files
 // Cmd + Ctrl + G -> multi line
 
+fun String.uppercase(): String {
+    return ""
+}
+
 fun main() {
-    val name = "Kotlin"
+    val name = "Kotlin".uppercase()
     println("Hello, $name!")
 
     for (i in 1..5) {
@@ -13,6 +17,6 @@ fun main() {
     }
 }
 
-fun main(args: Array<String>){
-    print(args.contentToString())
-}
+//fun main(args: Array<String>){
+//    print(args.contentToString())
+//}
