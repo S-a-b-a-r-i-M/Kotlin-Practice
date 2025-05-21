@@ -33,7 +33,7 @@ class User(val userName: String, val age: Int)
 fun main() {
     // Creating Objects
     val user = User("Muthu", 21)
-    val userData = UserData("Sabari", 23, "")
+    val userData = DataUser("Sabari", 23, "")
 
     // Print as string
     println("\n-------------------------- Print as string ----------------------")
@@ -42,7 +42,7 @@ fun main() {
 
     // Compare instances
     val user2 = User("Muthu", 21)
-    val userData2 = UserData("Sabari", 23)
+    val userData2 = DataUser("Sabari", 23)
     println("\n-------------------------- Compare instances ----------------------")
     println("user1 == user2 : ${user == user2}")
     println("userData1 == userData2 : ${userData == userData2}")
@@ -66,7 +66,7 @@ fun main() {
 
     // Iterating with Destructuring
     println("\n-------------Iterating with Destructuring-------------")
-    val userList = listOf<UserData>(userData, userData2, userData3)
+    val userList = listOf<DataUser>(userData, userData2, userData3)
     for((n, a) in userList)
         println("Name: $n Age: $a")
 }

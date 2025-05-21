@@ -27,11 +27,14 @@ fun sub(x: Int, y: Int) = abs(x - y)
 
 
 // Default Args
-@JvmOverloads
 // While Calling From Java, It Expects Us To Provide The Default Value also.
 // Hence, This Annotation Creates
 fun sum(x: Int, y: Int, z: Int = 0): Int { // Overloading Is Possible
     return x + y + z
+}
+
+fun sum(x: Int, y: Int): Int { // Overloading Is Possible
+    return sum(x, y, 0)
 }
 
 // Function Overloading works as like Java

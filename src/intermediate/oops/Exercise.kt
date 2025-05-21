@@ -1,9 +1,7 @@
 package intermediate.oops
 
-import basic.giveSomething
-import intermediate.SuperUser
 
-interface Car { // By default, interfaces are "PUBLIC"
+interface Car2 {
     var model: String // It's not like java. Here this property belongs to object
 
     companion object { // We can have companion objects
@@ -19,24 +17,7 @@ interface Car { // By default, interfaces are "PUBLIC"
     fun fillFuel()
 }
 
-abstract class  AbstractCar {
-    var model: String = ""
-
-    companion object {
-        var brand = ""
-    }
-
-    abstract fun start()
-
-    fun stop(){
-        this.model = "Audi"
-        println("Default implementation for crackers.stop inside Car($model)")
-    }
-
-    abstract fun fillFuel()
-}
-
-interface Robot {
+interface Robot2 {
     val name: String
 
     fun start()
@@ -44,26 +25,9 @@ interface Robot {
         println("Default implementation for crackers.stop inside Robot($name)")
     }
     fun charge()
-    fun attack(superPower: String? = null) {
-        println("Fight started !!!")
-        println("Reverse Punch 🥊")
-        println("Head Kick")
-        superPower?.let { println("Super Shot >> $superPower") }
-        println("Won the fight \uD83C\uDFC6")
-    }
 }
 
-class Transformer(override var model: String, override val name: String, var mode: String = "car") : Car, Robot {
-    private var superPower = "Fire Bullet"
-
-    fun setSuperPower(superPower: String) {
-        this.superPower = superPower
-    }
-
-    fun attack() {
-        super.attack(superPower)
-    }
-
+class Transformer2(override var model: String, override val name: String, var mode: String = "car") : Car, Robot {
     override fun start() {
         println("Transformer ${this.name} Awoken")
     }
@@ -87,7 +51,7 @@ class Transformer(override var model: String, override val name: String, var mod
     }
 }
 
-private class EvCar(override var model: String) : Car {
+private class EvCar2(override var model: String) : Car {
     override fun start() {
         println("EvCar started")
     }
@@ -115,14 +79,11 @@ fun main() {
     transformer.start()
     transformer.transform()
     transformer.charge()
-    transformer.attack()
     transformer.stop()
-    println(AbstractCar)
+
     // EvCar
-    /*
-    val evCar = EvCar("BMW")
+    val evCar = EvCar2("BMW")
     println("Model of my evCar ${evCar.model}")
     evCar.stop()
     println("Model of my evCar after crackers.stop ${evCar.model}")
-    */
 }

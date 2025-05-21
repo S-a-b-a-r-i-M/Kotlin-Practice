@@ -45,7 +45,7 @@ class Student constructor(
 }
 
 open class Vehicle(val brand: String = "", val model: String = ""){
-    var color: String = ""
+    private var color: String = ""
 
     constructor(brand: String, model: String, color: String) : this(brand,model){
         this.color = color
@@ -115,16 +115,16 @@ class Person(val fName: String, val lName: String){
 
 fun main() {
     // STUDENT CLASS
-    /*
+
     val student = Student(1, "Sabari", 11, 'A')
     student.display() // Calling member function
+    println(student.id) // You can see the getter call on 'Decompiled file'
 
     val student2 = Student(id = 2, name = "Arasu")
     student2.display()
-    */
 
     // VEHICLE CLASS
-//    val vehicle = Vehicle("Maruti", "ertica", "Blue with Black")
+    val vehicle = Vehicle("Maruti", "ertica", "Blue with Black")
 //    println("Bike details --> ${vehicle}")
 //
 //    // BIKE CLASS

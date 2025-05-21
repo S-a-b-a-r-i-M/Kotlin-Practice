@@ -12,12 +12,12 @@ class EvCar implements Car {
     }
 
     @Override
-    public void stop() {
+    public void setModel(@NotNull String s) {
 
     }
 
     @Override
-    public void setModel(@NotNull String s) {
+    public void stop() {
 
     }
 
@@ -34,13 +34,13 @@ class EvCar implements Car {
 
 public class InterOperable {
     private String name;
+    public int age;
 
-    public String getName() {
+    public String getName(){
         return name;
     }
 
     public void setName(String name) {
-        if (name.length() < 3) return;
         this.name = name;
     }
 
@@ -60,7 +60,6 @@ public class InterOperable {
 
         // INTERFACE FROM KOTLIN
         EvCar evCar = new EvCar();
-//        evCar.crackers.stop();
         System.out.println(evCar.getModel());
     }
 }

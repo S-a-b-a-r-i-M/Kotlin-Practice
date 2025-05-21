@@ -23,6 +23,15 @@ abstract class AbstractVehicle{
     }
 }
 
+abstract class FlyingVehicle {
+
+}
+
+class Flight : FlyingVehicle() {
+
+}
+
+
 class Scooter(override val color: String, override val maxSpeed: Int) : AbstractVehicle() {
     override fun start(): Boolean {
         println("Bike is started")
