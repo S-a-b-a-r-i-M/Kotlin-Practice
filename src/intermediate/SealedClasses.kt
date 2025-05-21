@@ -3,6 +3,13 @@ package intermediate
 sealed class SealedResult<out T> {
     data class Success<T>(val data: T): SealedResult<T>()
     data class Error(val exp: Exception) : SealedResult<Nothing>()
+    data class Authorized(private val authCode: String) : PaymentStatus() {
+        fun isAuthorizationValid(): Boolean {
+            return authCode.isNotEmpty() && System.currentTimeMillis() < expirationTime
+        }
+
+        private val expirationTime = System.currentTimeMillis() + 3600000 // 1 hour
+    }
 }
 
 fun fetchUser(userId: Int) = when (userId) {
@@ -18,3 +25,7 @@ fun main() {
         is SealedResult.Error -> println("Error")
     }
 }
+open class PaymentStatus {
+
+}
+

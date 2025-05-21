@@ -15,6 +15,13 @@ class Goat : Animal() {
     // NOTE: An overriding function is not allowed to specify default values for its parameters.
     override fun eat(food: String){
         println("Goat eating $food")
+        println(title2)
+    }
+    object MyObject {
+        val title1 = "MyObject"
+    }
+    companion object MyCompanionObject {
+        val title2 = "MyCompanionObject"
     }
 }
 
@@ -36,17 +43,15 @@ fun outer(param1: Any){
 fun String.capitalize(): String = this[0].uppercase() + this.substring(1).lowercase()
 
 fun main() {
-    /*
-    val goat: Goat = Goat()
-    goat.eat()
-    */
+
+     // val goat: Goat = Goat()
+     // goat.eat()
 
     // NAMED ARGUMENTS WON'T WORK WHILE CALLING JAVA FUNCTIONS
     val interOperable = InterOperable()
     //interOperable.sing(song="Why this kolaveri", duration=3.50) // ERROR: Named arguments are prohibited for non-Kotlin functions.
     interOperable.sing("Why this kolaveri", 3.50)
     sing(song = "Naan Pollathvan", duration = 3.5)
-
 
     //outer(123)
     println("EXTENSION FUNCTION IS USEFUL".capitalize())
