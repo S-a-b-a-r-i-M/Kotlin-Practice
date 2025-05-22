@@ -18,9 +18,8 @@ fun immutableList(){
     println("\n-------------------------- Access operations --------------------------")
     println("First element: ${fruitList.first()}")
     println("Last element: ${fruitList.last()}")
-    println("Element at index 1: ${fruitList.elementAt(1)}")
+    println("Element at index 1: ${fruitList.elementAt(1)}") // there's no practical difference between get(index) (or shorthand numbers[index]) and elementAt(index)
     println("Random element: ${fruitList.random()}")
-    println("2nd element ${fruitList[1]}")
     // println("not valid element ${fruitList[11]}") // ERROR: java.lang.ArrayIndexOutOfBoundsException
     println("accessing not valid element " +
             "getOrNull : ${fruitList.getOrNull(11)}, " +
@@ -92,7 +91,7 @@ fun immutableList(){
 fun mutableList(){
 // Creating mutable lists
     val emptyMutableList = mutableListOf<String>()
-    val fruitMutableList = mutableListOf("apple", "banana", "cherry")
+    val fruitMutableList = mutableListOf("apple", "banana", "cherry", "jack fruit")
     val numberMutableList = mutableListOf(5, 2, 8, 1)
 
     println("Original mutable list: $fruitMutableList")

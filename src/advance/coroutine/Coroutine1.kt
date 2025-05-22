@@ -1,19 +1,22 @@
 package advance.coroutine
 
 import kotlinx.coroutines.*
-/*
-fun main() = runBlocking { // this: CoroutineScope
-    launch { // launch a new coroutine and continue
-        delay(1000L) // non-blocking delay for 1 second (default time unit is ms)
-        print("Murugan")
+
+fun main() {
+    runBlocking { // this: CoroutineScope
+        launch { // launch a new coroutine and continue
+            delay(1000L) // non-blocking delay for 1 second (default time unit is ms)
+            print("Murugan")
+        }
+        launch {
+            delay(500)
+            print(" ")
+        }
+        print("Sabari") // main coroutine continues while a previous one is delayed
     }
-    launch {
-       delay(500)
-        print(" ")
-    }
-    print("Sabari") // main coroutine continues while a previous one is delayed
+    println("\nThis Out of the runBlock prints at last. Because runBlock is blocked the main thread")
 }
- */
+
 
 // Example of Tag team match
 /*
@@ -85,6 +88,7 @@ fun main() {
 */
 
 // With coroutine
+/*
 suspend fun orderProduct(orderItem: String): Product {
     val product = when (orderItem) {
         Product.WINDOWS.description -> Product.WINDOWS
@@ -134,3 +138,4 @@ fun main() {
     val end = System.currentTimeMillis()
     println("Total time taken to complete the work : ${(end - start) / 1000.toFloat()} seconds")
 }
+*/
