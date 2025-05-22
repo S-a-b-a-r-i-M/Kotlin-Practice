@@ -19,6 +19,10 @@ enum class StatusInt(val value: Int) {
 }
 
 fun main() {
+    var sub = Subject.ENGLISH
+    sub == Subject.MATHEMATICS
+
+
     println("-------------------------------------------------------------")
     println("valueOf : ${Subject.valueOf("ENGLISH")}\n")
     try {

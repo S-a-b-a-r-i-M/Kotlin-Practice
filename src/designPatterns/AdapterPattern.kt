@@ -103,3 +103,54 @@ fun main() {
         CardDetails("1232134", 4, 2027, "342")
     )
 }
+
+
+class Network {
+    fun getCurrentDateTime() : Long {
+        return System.currentTimeMillis()
+    }
+}
+
+data class HumanReadable(val dateTime: String)
+
+class Adapter {
+    val network = Network()
+
+    private fun fetchEpochTime(): Long = network.getCurrentDateTime()
+
+    fun fetchHumanReadableTime() : HumanReadable {
+        val epochTime = fetchEpochTime()
+        return HumanReadable("2025-05-22T")
+    }
+
+    fun fetchStringFormatTime() : String {
+        val epochTime = fetchEpochTime()
+        return "2025-05-22T"
+    }
+
+    // TODO: C-C, C-B, C-TB
+}
+
+class HomeScreen () {
+    val adapter = Adapter()
+
+    fun showDateTime(){
+        println(adapter.fetchHumanReadableTime())
+    }
+}
+
+class Navbar {
+    val adapter = Adapter()
+
+    fun showDateTime(){
+        println(adapter.fetchHumanReadableTime())
+    }
+}
+
+class LockScreen {
+    val adapter = Adapter()
+
+    fun showDateTime(){
+        println(adapter.fetchHumanReadableTime())
+    }
+}

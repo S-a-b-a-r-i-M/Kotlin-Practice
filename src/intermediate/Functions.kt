@@ -17,10 +17,12 @@ class Goat : Animal() {
         println("Goat eating $food")
         println(title2)
     }
+
     object MyObject {
         val title1 = "MyObject"
     }
-    companion object MyCompanionObject {
+
+    companion object {
         val title2 = "MyCompanionObject"
     }
 }
@@ -44,8 +46,11 @@ fun String.capitalize(): String = this[0].uppercase() + this.substring(1).lowerc
 
 fun main() {
 
-     // val goat: Goat = Goat()
-     // goat.eat()
+      val goat: Goat = Goat()
+      goat.eat()
+      Goat.MyObject.title1
+      Goat.title2
+      Goat.Companion.title2
 
     // NAMED ARGUMENTS WON'T WORK WHILE CALLING JAVA FUNCTIONS
     val interOperable = InterOperable()

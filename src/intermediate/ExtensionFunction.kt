@@ -14,7 +14,10 @@ fun <T> Array<T>.swap(index1: Int, index2: Int){
 }
 
 open class Vehicle {
+    var isEngineOn = false
+
     open fun invoke(){
+        isEngineOn = true
         println("invoking Vehicle class extension function")
     }
 }
@@ -26,11 +29,12 @@ class Tractor : Vehicle() {
 }
 
 fun Vehicle.stop() {
-    println("stopping Vehicle class extension function")
+    isEngineOn = false
+    println("Vehicle - stopping Vehicle class extension function")
 }
 
 fun Tractor.stop() {
-    println("stopping Tractor class extension function")
+    println("Tractor - stopping Tractor class extension function")
 }
 
 fun invokeVehicle(vehicle: Vehicle){
@@ -57,4 +61,15 @@ fun main() {
     val tractor: Tractor = Tractor()
     invokeVehicle(tractor)
     stopVehicle(tractor)
+
+    val vehicle1 = Vehicle()
+    val vehicle2 = Tractor()
+
+    println("----")
+    vehicle1.stop()
+    vehicle2.stop()
+
+    println("----")
+    stopVehicle(vehicle1)
+    stopVehicle(vehicle2)
 }

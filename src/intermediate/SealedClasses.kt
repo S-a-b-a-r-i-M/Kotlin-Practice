@@ -12,13 +12,26 @@ sealed class SealedResult<out T> {
     }
 }
 
+enum class EnumResult(val value: Int) {
+    Success(1),
+    Error(2)
+}
+
 fun fetchUser(userId: Int) = when (userId) {
     1 -> SealedResult.Success("Arasu")
     2 -> SealedResult.Success("Sabari")
     else -> SealedResult.Error(ResourceNotFoundError("User Not Found"))
 }
 
+fun fetchUserFromEnum(userId: Int) = when (userId) {
+    1 -> EnumResult.Success
+    2 -> EnumResult.Error
+    else -> error("Not found")
+}
+
 fun main() {
+
+
     // FETCH USER
     when(val user = fetchUser(1)){
         is SealedResult.Success -> println("Success")

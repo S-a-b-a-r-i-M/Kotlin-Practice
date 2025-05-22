@@ -31,6 +31,10 @@ class NormalUser(val userName: String, var age: Int){
         var userId = 1
     }
 
+    override fun equals(other: Any?): Boolean {
+        return false
+    }
+
     override fun toString(): String {
         return "NormalUser(id=$id, userName=$userName, age=$age, email=$email)"
     }
@@ -62,17 +66,18 @@ fun main() {
 
     println("-------------------------------------------------------------")
 
-//    val hashMap1 = hashMapOf<NormalUser, DataUser>()
+    val hashMap1 = hashMapOf<NormalUser, DataUser>()
     val hashMap2 = hashMapOf<DataUser, NormalUser>()
 
-//    hashMap1[userN1] = userD1
-//    hashMap1[userN2] = userD2
+    hashMap1[userN1] = userD1
+    hashMap1[userN2] = userD2
 
     hashMap2[userD1] = userN1
     hashMap2[userD2] = userN2
 
-//    println(hashMap1[userN1])
-//    println(hashMap1[userN3])
+    println(hashMap1[userN1])
+    println(userN2 == userN3)
+    println(hashMap1[userN3])
 
     println(hashMap2[userD1])
     println(hashMap2[userD3])
