@@ -29,13 +29,14 @@ fun sub(x: Int, y: Int) = abs(x - y)
 // Default Args
 // While Calling From Java, It Expects Us To Provide The Default Value also.
 // Hence, This Annotation Creates
+@JvmOverloads
 fun sum(x: Int, y: Int, z: Int = 0): Int { // Overloading Is Possible
     return x + y + z
 }
 
-fun sum(x: Int, y: Int): Int { // Overloading Is Possible
-    return sum(x, y, 0)
-}
+//fun sum(x: Int, y: Int): Int { // Overloading Is Possible
+//    return sum(x, y, 0)
+//}
 
 // Function Overloading works as like Java
 fun sum(x: Double, y: Double): Double {
@@ -45,12 +46,13 @@ fun sum(x: Double, y: Double): Double {
 fun powerOf(number: Double, exponent: Int = 2) = number.pow(exponent)
 
 // Named argument
+@JvmOverloads
 fun addStudent(
-    studentId: Int,
+    studentId: Int, // Note: if you are using any default param in between, it won't be reflected in java
     name: String,
     isPresent: Boolean = true,
     dob: String,
-    parentName: String,
+    parentName: String = "",
     parentContact: String? = null
 ) {
     println("Student $name added successfully !!!")

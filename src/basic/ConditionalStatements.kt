@@ -59,7 +59,7 @@ fun practiceWhen(){
     println("branch expression and subject rangeText is : $numberInText")
     // Without subject
     val rangeText = when {
-        num > 5 && num < 10  -> "number less than 10 and greater than 5"
+        num > 5 && num < 10 -> "number less than 10 and greater than 5"
         num < 20 -> "number grater than 10 and less than 20"
         else -> {
             println("I can write block of statement inside a branch")
@@ -72,6 +72,6 @@ fun practiceWhen(){
 fun main() {
     practiceIfElse()
 
-//    practiceWhen()
+    practiceWhen()
 }
 
