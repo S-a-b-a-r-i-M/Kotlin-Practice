@@ -43,6 +43,10 @@ fun main() {
         }.start()
     }
 
-    val serviceALogger = Logger
-    serviceALogger.log("Program completed")
+    /*
+//    val serviceALogger = Logger
+    Logger.log("Program completed")
+    Logger.log("Program completed")
+    Logger.log("Program completed")
+    */
 }

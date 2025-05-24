@@ -1,7 +1,5 @@
 package designPatterns
 
-import basic.sub
-
 // The Observable (Publisher) interface
 interface Observable {
     fun addObserver(observer: Observer)
@@ -41,6 +39,10 @@ class User2 (val name: String) : Observer {
     // Handle other logics
     override fun update(message: String) {
         println("New update: $message")
+    }
+
+    fun doSomething(){ // This fun won't visible in your Observable(youtube), abstraction and loose coupling
+
     }
 }
 

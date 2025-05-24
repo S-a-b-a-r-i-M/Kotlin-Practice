@@ -36,7 +36,7 @@ class FraudDetection {
 }
 
 class ProductFacade {
-    // TODO: Get these values from constructor
+    // TODO: Get these values in constructor
     private val fraudDetection = FraudDetection()
     private val inventory = Inventory()
     private val payment = Payment()
@@ -49,12 +49,13 @@ class ProductFacade {
         if (!inventory.isStockAvailable(product.id, 1))
             throw OutOfStockException("out of stock")
 
-        if (!payment.makePayment(product.price))
-            throw PaymentFailedException("payment failed")
         if (user.address == null){
             println("Enter users address")
             user.address = readln()
         }
+
+        if (!payment.makePayment(product.price))
+            throw PaymentFailedException("payment failed")
 
         user.address?.let { delivery.prepareDelivery(product, it) }
     }
