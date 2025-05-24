@@ -1,44 +1,28 @@
 package intermediate
+import kotlinx.coroutines.*
 
 sealed class SealedResult<out T> {
     data class Success<T>(val data: T): SealedResult<T>()
     data class Error(val exp: Exception) : SealedResult<Nothing>()
-    data class Authorized(private val authCode: String) : PaymentStatus() {
-        fun isAuthorizationValid(): Boolean {
-            return authCode.isNotEmpty() && System.currentTimeMillis() < expirationTime
-        }
+}
 
-        private val expirationTime = System.currentTimeMillis() + 3600000 // 1 hour
+object Pending : SealedResult<Unit>()
+
+fun fetchUser(userId: Int): SealedResult<Any> {
+    return when (userId) {
+        1 -> SealedResult.Success("Arasu")
+        2 -> SealedResult.Success("Sabari")
+        else -> SealedResult.Error(ResourceNotFoundError("User Not Found"))
     }
-}
-
-enum class EnumResult(val value: Int) {
-    Success(1),
-    Error(2)
-}
-
-fun fetchUser(userId: Int) = when (userId) {
-    1 -> SealedResult.Success("Arasu")
-    2 -> SealedResult.Success("Sabari")
-    else -> SealedResult.Error(ResourceNotFoundError("User Not Found"))
-}
-
-fun fetchUserFromEnum(userId: Int) = when (userId) {
-    1 -> EnumResult.Success
-    2 -> EnumResult.Error
-    else -> error("Not found")
 }
 
 fun main() {
-
-
     // FETCH USER
-    when(val user = fetchUser(1)){
-        is SealedResult.Success -> println("Success")
-        is SealedResult.Error -> println("Error")
+    when(val result = fetchUser((Math.random() * 4).toInt())){
+        is SealedResult.Success -> println("Success ${result.data}")
+        is SealedResult.Error -> println("Error ${result.exp}")
+        is Pending -> println("Pending...")
     }
 }
-open class PaymentStatus {
 
-}
 

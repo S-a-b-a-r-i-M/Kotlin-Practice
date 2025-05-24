@@ -67,7 +67,6 @@ class NameDelegation {
 }
 
 fun main() {
-    /*
     val component = Component("Login in page code")
 
     if (component.isPageViewable)
@@ -82,10 +81,11 @@ fun main() {
 
     var userName: String by Delegates.notNull<String>()
     println(" UserName is $userName")
-    */
 
+    /*
     val name = PersonName()
     name.firstName = "sabari"
     name.lastName = "murugan"
     println(name)
+    */
 }

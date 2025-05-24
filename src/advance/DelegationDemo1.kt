@@ -37,7 +37,9 @@ class Delegate(instrument: MusicInstrument) : MusicInstrument by instrument {
 }
 
 class ModernPiano : MusicInstrument by Piano() {
-
+    override fun makeSound() {
+        println("ModernPiano...ModernPiano")
+    }
 }
 
 fun main() {

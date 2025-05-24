@@ -2,12 +2,12 @@ package intermediate.oops
 
 abstract class AbstractVehicle{
     // Abstract property (must be implemented by subclasses)
-    abstract val maxSpeed: Int
-    abstract val color: String // needs an override
-    var defaultColor: String = "red" /* This is NOT final by default.
+    abstract val maxSpeed: Int // While overriding, You can this val variable as var variable.
+    abstract val color: String
+    var defaultColor: String = "red" /*
     It's a concrete property with a backing field, but it's not marked as open, so it cannot be overridden.
     However, its value can be changed (reassigned) in subclasses.*/
-    open var secondaryColor: String = "red" // if you want you can override
+    open var secondaryColor: String = "red" // if you want you can override it
     val finalVariable = 0 // It can't be overridden
 
     // Concrete property with custom getter
