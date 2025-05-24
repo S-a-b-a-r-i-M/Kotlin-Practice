@@ -6,6 +6,7 @@ import basic.InterOperable
 
 open class Animal {
     // NOTE: by default class and functions are public and final
+    @JvmOverloads
     open fun eat(food: String = "gross"){
         println("Animal eating $food")
     }
@@ -16,6 +17,7 @@ class Goat : Animal() {
     override fun eat(food: String){
         println("Goat eating $food")
         println(title2)
+        println(MyObject.title1)
     }
 
     object MyObject {
@@ -45,8 +47,7 @@ fun outer(param1: Any){
 fun String.capitalize(): String = this[0].uppercase() + this.substring(1).lowercase()
 
 fun main() {
-
-      val goat: Goat = Goat()
+      val goat = Goat()
       goat.eat()
       Goat.MyObject.title1
       Goat.title2

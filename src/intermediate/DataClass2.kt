@@ -9,7 +9,7 @@ data class DataUser(val userName: String, var age: Int){
         this.email = email
     }
 
-    companion object {
+    companion object { // Static Class
         var userId = 1
     }
 
@@ -20,19 +20,23 @@ data class DataUser(val userName: String, var age: Int){
 
 class NormalUser(val userName: String, var age: Int){
     val id: Int = userId++
-    var email: String = "" // This won't reflect in toString().
+    var email: String = ""
 
     constructor(userName: String, age: Int, email: String): this(userName, age){
         println("Secondary constructor of ${this.javaClass}")
         this.email = email
     }
 
-    companion object {
-        var userId = 1
+    object MyObject {
+
     }
 
-    override fun equals(other: Any?): Boolean {
-        return false
+    companion object MyCompanion {
+        var userId = 1
+
+        fun WhoAmI(){
+            println("Im an companion object of NormalUser")
+        }
     }
 
     override fun toString(): String {

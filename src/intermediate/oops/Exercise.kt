@@ -60,7 +60,6 @@ private class EvCar2(override var model: String) : Car {
         println("filling fuel...")
         println("Fuel is full !")
     }
-
 }
 
 //private class EvCarFromJava : JavaCar {

@@ -14,7 +14,7 @@ interface Car { // By default, interfaces are "PUBLIC"
     fun start()
     fun stop(){
         this.model = "Audi"
-        println("Default implementation for crackers.stop inside Car($model)")
+        println("Default implementation for stop inside Car($model)")
     }
     fun fillFuel()
 }

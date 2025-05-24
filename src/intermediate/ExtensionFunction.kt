@@ -10,7 +10,7 @@ fun ReceiverType.funName (arg1: type, arg2: type, etc,...): return type {
 fun <T> Array<T>.swap(index1: Int, index2: Int){
     val temp = this[index1]
     this[index1] = this[index2]
-    this[index2] = this[index1]
+    this[index2] = temp
 }
 
 open class Vehicle {
@@ -22,15 +22,15 @@ open class Vehicle {
     }
 }
 
+fun Vehicle.stop() {
+    isEngineOn = false
+    println("Vehicle - stopping Vehicle class extension function")
+}
+
 class Tractor : Vehicle() {
     override fun invoke(){
         println("invoking Tractor class extension function")
     }
-}
-
-fun Vehicle.stop() {
-    isEngineOn = false
-    println("Vehicle - stopping Vehicle class extension function")
 }
 
 fun Tractor.stop() {
@@ -52,8 +52,8 @@ fun main() {
     family[1] = "Chithra"
     family[2] = "Nithika"
     family[3] = "Sabari"
-    println("Original Family tree : ${family.joinToString()}")
 
+    println("Original Family tree : ${family.joinToString()}")
     family.swap(2, 3)
     println("After Swap Family tree : ${family.joinToString()}\n")
 

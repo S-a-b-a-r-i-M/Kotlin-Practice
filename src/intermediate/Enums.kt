@@ -8,7 +8,7 @@ enum class Subject {
     SOCIAL,
 }
 
-enum class StatusInt(val value: Int) {
+enum class StatusInt(var value: Int) {
     PENDING(1),
     COMPLETED(2),
     REJECTED(3); // <- Added a semicolon to separate constants from members
@@ -20,8 +20,15 @@ enum class StatusInt(val value: Int) {
 
 fun main() {
     var sub = Subject.ENGLISH
-    sub == Subject.MATHEMATICS
 
+    // USING WHEN EXPRESSION
+    when (sub) {
+        Subject.TAMIL -> println("Tamil is selected")
+        Subject.ENGLISH -> println("English is selected")
+        Subject.MATHEMATICS -> println("Maths is selected")
+        Subject.SCIENCE -> println("Science is selected")
+        Subject.SOCIAL -> println("Social is selected")
+    }
 
     println("-------------------------------------------------------------")
     println("valueOf : ${Subject.valueOf("ENGLISH")}\n")
@@ -30,8 +37,9 @@ fun main() {
     } catch (exp: Exception) {
         println("'NOT AVAILABLE' is not present in Subject enum\n")
     }
-    println("Entries : ${Subject.entries}\n")
-//    Subject.entries.forEach { println(it) }
+    println("Entries : ${Subject.entries}")
+    println("Entries of StatusInt : ${StatusInt.entries}")
+    // Subject.entries.forEach { println(it) }
     println("name of Maths : ${Subject.MATHEMATICS.name}, ordinal: ${Subject.MATHEMATICS.ordinal}")
     println("-------------------------------------------------------------")
 

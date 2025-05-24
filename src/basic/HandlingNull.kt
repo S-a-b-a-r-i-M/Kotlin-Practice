@@ -4,12 +4,15 @@ fun giveSomething(): Int? {
     return null
 }
 
+// Note: While accessing this method in java explicitly we have to handle nullability
+fun getBrand() = if (Math.random() * 10 <= 6) "Vivo" else null
+
 fun main() {
-    var phoneBrand: String? = "Vivo"
+    var phoneBrand = getBrand()
     println("My phone's brand is $phoneBrand(${phoneBrand?.length})")
 
     if (phoneBrand is String) // Smart Cast
-        println("My phone's brand is $phoneBrand(${phoneBrand.length})")
+        println("Phone brand length: (${phoneBrand.length})")
 
     val interOperable = InterOperable()
     // Without ?. the below line will throw NPException

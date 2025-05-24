@@ -15,7 +15,7 @@ class Outer {
 
     companion object {
         fun start(){
-
+            println("from companion object method")
         }
     }
 

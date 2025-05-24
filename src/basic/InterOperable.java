@@ -1,24 +1,30 @@
 package basic;
 
+import intermediate.Goat;
 import intermediate.oops.Car;
 import org.jetbrains.annotations.NotNull;
 
 class EvCar implements Car {
+    String model;
+
+    public EvCar(String model){
+        this.model = model;
+    }
 
     @Override
     @NotNull
     public String getModel() {
-        return "";
+        return model;
     }
 
     @Override
     public void setModel(@NotNull String s) {
-
+        model = s;
     }
 
     @Override
     public void stop() {
-
+        Car.DefaultImpls.stop(this);
     }
 
     @Override
@@ -59,7 +65,12 @@ public class InterOperable {
         System.out.println("Sum of 5 and 6 : " + sum);
 
         // INTERFACE FROM KOTLIN
-        EvCar evCar = new EvCar();
+        EvCar evCar = new EvCar("TATA");
         System.out.println(evCar.getModel());
+        evCar.stop();
+
+        // Kotlin Class
+        Goat whiteSheep = new Goat();
+        whiteSheep.eat();
     }
 }

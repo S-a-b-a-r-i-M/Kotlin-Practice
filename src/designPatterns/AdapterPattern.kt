@@ -104,6 +104,7 @@ fun main() {
     )
 }
 
+//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-//
 
 class Network {
     fun getCurrentDateTime() : Long {
@@ -113,7 +114,31 @@ class Network {
 
 data class HumanReadable(val dateTime: String)
 
-class Adapter {
+class EpochTimeAdapter {
+    private val network = Network()
+
+    fun fetchEpochTime(): Long = network.getCurrentDateTime()
+}
+
+class HumanReadableTimeAdapter {
+    private val epochTimeAdapter = EpochTimeAdapter()
+
+    fun fetchHumanReadableTime(): HumanReadable {
+        val epochTime = epochTimeAdapter.fetchEpochTime()
+        return HumanReadable("2025-05-22T") // Convert epoch to readable format
+    }
+}
+
+class StringTimeAdapter {
+    private val epochTimeAdapter = EpochTimeAdapter()
+
+    fun fetchStringFormatTime(): String {
+        val epochTime = epochTimeAdapter.fetchEpochTime()
+        return "2025-05-22T" // Convert epoch to string format
+    }
+}
+
+object Adapter {
     val network = Network()
 
     private fun fetchEpochTime(): Long = network.getCurrentDateTime()
@@ -132,25 +157,19 @@ class Adapter {
 }
 
 class HomeScreen () {
-    val adapter = Adapter()
-
     fun showDateTime(){
-        println(adapter.fetchHumanReadableTime())
+        println(Adapter.fetchHumanReadableTime())
     }
 }
 
 class Navbar {
-    val adapter = Adapter()
-
     fun showDateTime(){
-        println(adapter.fetchHumanReadableTime())
+        println(Adapter.fetchHumanReadableTime())
     }
 }
 
 class LockScreen {
-    val adapter = Adapter()
-
     fun showDateTime(){
-        println(adapter.fetchHumanReadableTime())
+        println(Adapter.fetchHumanReadableTime())
     }
 }

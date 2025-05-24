@@ -76,9 +76,9 @@ fun usageOfJumpingStatements() {
 }
 
 fun main() {
-    iterateUsingFor()
+//    iterateUsingFor()
 
 //    iterateUsingWhile()
 
-//    usageOfJumpingStatements()
+    usageOfJumpingStatements()
 }

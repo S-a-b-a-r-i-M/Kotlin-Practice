@@ -43,8 +43,9 @@ class Person(val name: String, val dob: String, val gender: String) {
 
     inner class Education{
         internal var currentEducation = "schooling"
+        internal val marks = mutableListOf<Int>()
 
-        internal fun isPengalScholarship(): Boolean = this@Person.gender == "girl"
+        internal fun isScholarshipEligible(): Boolean = marks.average() > 90
     }
 }
 
@@ -60,8 +61,14 @@ fun main() {
     // INNER CLASS
     val sabari = Person("sabari", "05/02/2002", "male")
     val sabariEdu1 = sabari.Education()
+    sabariEdu1.marks.add(90)
+    sabariEdu1.marks.add(75)
+    sabariEdu1.marks.add(93)
+    sabariEdu1.marks.add(97)
+    sabariEdu1.marks.add(100)
     val sabariEdu2 = sabari.Education()
     sabariEdu2.currentEducation = "college"
 
     println("Sabari Education1 - ${sabariEdu1.currentEducation}, Education2 - ${sabariEdu2.currentEducation} ")
+    println("Sabari ${sabariEdu1.currentEducation} scholarship available or not ? ${sabariEdu1.isScholarshipEligible()}")
 }

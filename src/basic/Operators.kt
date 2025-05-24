@@ -75,7 +75,7 @@ fun main() {
     println("Review: $displayReview") // Output: No reviews yet
 
 // IS OPERATOR (Type checking)
-    val specialItem: Any = SpecialEditionBook("Dune", "Frank Herbert", 1965, 15.99, true, "First Edition")
+    val specialItem: Any = getSpecialEditionBook()
     if (specialItem is SpecialEditionBook) {
         println("Special edition details: ${specialItem.specialFeature}")
     }
@@ -116,8 +116,16 @@ fun main() {
     calculateTotal(*prices)
 }
 
+fun getSpecialEditionBook(): Any {
+    return SpecialEditionBook("Dune", "Frank Herbert", 1965, 15.99, true, "First Edition")
+}
+
 // Supporting classes and functions
-open class Book(val title: String, val author: String, val year: Int, val price: Double, val available: Boolean)
+open class Book(val title: String, val author: String, val year: Int, val price: Double, val available: Boolean) {
+    override fun toString(): String {
+        return title
+    }
+}
 
 class SpecialEditionBook(
     title: String,
@@ -132,7 +140,9 @@ class Bookshelf {
     private val books = arrayOfNulls<Book>(10)
 
     // Demonstrating the indexing operator
+    @JvmName("getBook")
     operator fun get(index: Int): Book? = books[index]
+    @JvmName("setBook")
     operator fun set(index: Int, book: Book) {
         books[index] = book
     }

@@ -2,7 +2,7 @@ package intermediate
 
 // Product catalog with nested utility classes (static relationship)
 class ProductCatalog {
-    private val products = mutableMapOf<Int, Product>()
+    private val products = mutableMapOf<Int, Product>() // By default, LinkedHashMap is used
 
     // Nested class - doesn't need to access to outer class instance
     data class Product(
