@@ -1,31 +1,55 @@
 package advance.coroutine
 
 import kotlinx.coroutines.*
+import kotlinx.coroutines.launch
+import kotlin.system.measureTimeMillis
 
+/*
 fun main() {
     runBlocking { // this: CoroutineScope
-        launch { // launch a new coroutine and continue
-            delay(1000L) // non-blocking delay for 1 second (default time unit is ms)
-            print("Murugan")
+        val job = launch { // launch a new coroutine and continue
+            delay(1000) // non-blocking delay for 1 second (default time unit is ms)
+            println("Murugan")
         }
         launch {
             delay(500)
             print(" ")
         }
-        print("Sabari") // main coroutine continues while a previous one is delayed
+//        job.cancel()
+        println("Sabari") // main coroutine continues while a previous one is delayed
+        println("job $job")
+        job.join() // Waits for the coroutine to complete
+        println("after join job $job")
     }
     println("\nThis Out of the runBlock prints at last. Because runBlock is blocked the main thread")
 }
+*/
+
+// CREATING 100,000 CO-ROUTINES
+/*
+suspend fun main() = coroutineScope {
+    val time = measureTimeMillis {
+        val jobs = List(100_000) {
+            launch {
+                delay(1000)
+                print(".")
+            }
+        }
+        jobs.forEach { it.join() }
+    }
+    println("\nTime taken to execute 1Lakh coroutines : $time ms")
+}
+*/
 
 
 // Example of Tag team match
-/*
+
 suspend fun tagOut() {
     println("Tagout !")
     yield()
 }
 
-fun main() {
+fun tagMatch() {
     runBlocking {
         launch {
             println("Brock: Suplexcity 🫂")
@@ -45,7 +69,11 @@ fun main() {
         }
     }
 }
-*/
+
+fun main() {
+    tagMatch()
+}
+
 
 // Example of building a house
 enum class Product(val description: String, val delayTime: Long) {
@@ -120,10 +148,11 @@ fun main() {
             work(doors.await().description)
         }
     }
-    */
+
+     */
 
     // PARALLELISM
-
+    /*
     runBlocking {
         val windows = async(Dispatchers.IO) { orderProduct("windows") }
         val doors = async(Dispatchers.IO) { orderProduct("doors") }
@@ -133,7 +162,7 @@ fun main() {
             launch{ work(doors.await().description) }
         }
     }
-
+    */
 
     val end = System.currentTimeMillis()
     println("Total time taken to complete the work : ${(end - start) / 1000.toFloat()} seconds")
