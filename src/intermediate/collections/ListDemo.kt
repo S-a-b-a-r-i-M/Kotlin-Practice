@@ -180,6 +180,12 @@ fun mutableList(){
     println("Built list: $builtList")
 }
 
+fun randomWorks() {
+    // Filter
+    val fruitMutableList = mutableListOf("apple", "banana", "cherry", "jack fruit")
+    println(fruitMutableList.filter { it.contains("mango") })
+}
+
 fun main() {
     println("Empty list class: ${listOf<Int>()::class}")
     println("Single element list class: ${listOf<Int>(123)::class}")
@@ -187,5 +193,7 @@ fun main() {
 
 //    immutableList()
 
-    mutableList()
+//    mutableList()
+
+    randomWorks()
 }

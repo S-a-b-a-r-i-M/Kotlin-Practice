@@ -75,10 +75,25 @@ fun usageOfJumpingStatements() {
     }
 }
 
+fun doWhile() {
+    /*
+    Block Scope: Variables declared inside {} are only visible within that block
+    Exception for do-while: The while condition can access variables declared in the do block
+    */
+    do {
+        println("Enter:")
+        val input = readln().trim() == "y"
+    } while (input)
+    // println(input) // Error
+}
+
+val CURRENT_FILE_NAME = Throwable().stackTrace[0].fileName
+
 fun main() {
 //    iterateUsingFor()
 
 //    iterateUsingWhile()
 
-    usageOfJumpingStatements()
+//    usageOfJumpingStatements()
+println(CURRENT_FILE_NAME)
 }

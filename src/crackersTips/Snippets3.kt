@@ -25,8 +25,31 @@ fun nullPlus(){
 }
 
 
+// TIP - 3 : Null values on operator overload functions
+class Vec2(var x: Int, var y: Int) {
+    operator fun plus(other: Vec2?): Vec2 {
+        val otherVec = other ?: Vec2(0, 0)
+        this.x += otherVec.x
+        this.y += otherVec.y
+        return this
+    }
+
+    override fun toString(): String {
+        return "x: $x, y: $y"
+    }
+}
+
+operator fun Vec2?.plus(other: Vec2): Vec2 {
+    return other + this
+}
+
+
 fun main() {
 //    enhanceIteration()
+
 //    nullPlus()
 
+    println(Vec2(3, 4) + Vec2(7, 6))
+    println(Vec2(3, 4) + null)
+    println(null + Vec2(7, 6))
 }

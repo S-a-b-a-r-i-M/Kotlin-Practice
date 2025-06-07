@@ -1,7 +1,7 @@
 package basic;
 
 public class InterOperable2 {
-    public static void main(String[] args) {
+    void accessOperatorOverloading() {
         Bookshelf bookshelf = new Bookshelf();
         Book got = new Book(
                 "Game of thrones",
@@ -17,7 +17,24 @@ public class InterOperable2 {
                 1999,
                 2000,
                 true
-            ));
+        ));
         System.out.println(bookshelf.getBook(0));
+    }
+
+    void breakLoopWithLabel() {
+        outer:
+        while (true) {
+            switch (5) {
+                default -> {
+                    break outer;
+                }
+            }
+        }
+
+        System.out.println("Loop Ends"); // This becomes unreachable without label
+    }
+
+    public static void main(String[] args) {
+
     }
 }

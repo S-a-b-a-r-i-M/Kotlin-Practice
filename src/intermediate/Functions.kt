@@ -44,6 +44,7 @@ fun outer(param1: Any){
 }
 
 // EXTENSION FUNCTION
+
 fun String.capitalize(): String = this[0].uppercase() + this.substring(1).lowercase()
 
 fun main() {
