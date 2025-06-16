@@ -74,3 +74,75 @@ fun main() {
         println("After recovery: ${recoverableList.joinToString()}")
     }
 }
+
+interface A {
+    fun addA()
+    /*fun addX() {
+        println("addX of A")
+    }*/
+}
+
+class AClass(private val a: Int): A {
+    override fun addA() {
+        println("addA of AClass - $a")
+    }
+}
+
+interface B {
+    fun addB()
+    /*fun addX() {
+        println("addX of B")
+    }*/
+}
+
+class BClass(private val b: Int): B {
+    override fun addB() {
+        println("addB of BClass - $b")
+    }
+}
+
+class Some: A, B {
+    override fun addA() {
+        TODO("Not yet implemented")
+    }
+
+    /*override fun addX() {
+        super<B>.addX()
+    }*/
+
+    override fun addB() {
+        TODO("Not yet implemented")
+    }
+}
+
+interface AB {
+    fun addAB()
+}
+
+interface C: A, B, AB {
+    // override fun addX() = super<advance.B>.addB()
+    fun addC()
+}
+
+
+class ABC {
+    private var objVariable: String = ""
+
+    companion object {
+        var cA = AClass(2)
+
+        fun compFunc() {
+
+        }
+    }
+
+    object NonCompanion {
+        fun nonCompFunc() {
+
+        }
+    }
+}
+
+fun main(args: Array<String>) {
+
+}

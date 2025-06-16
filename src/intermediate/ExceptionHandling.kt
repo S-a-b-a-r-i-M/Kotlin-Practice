@@ -41,10 +41,13 @@ fun main() {
 
     println("Salary $salary")
      */
-    try {
-        canIVote(age)
+    val amIEligible = try {
+        canIVote(age) // Returns data if successful
     } catch (exp: Exception) {
         println(exp)
+        return // Exits the entire function
     }
+
+    println("Am i eligible : $amIEligible")
 
 }

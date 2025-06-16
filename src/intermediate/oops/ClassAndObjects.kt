@@ -85,8 +85,19 @@ class Bike{
         override fun getTotalCount() = bikeCount
     }
 
+    object ObjectClass: Count {
+        init {
+            println("Object class initialized...")
+        }
+
+        var objBikeCount = 0
+
+        override fun getTotalCount() = objBikeCount
+    }
+
     init {
         bikeCount++;
+        ObjectClass.objBikeCount++
         println("Bike initializers")
     }
 
@@ -115,7 +126,6 @@ class Person(val fName: String, val lName: String){
 
 fun main() {
     // STUDENT CLASS
-
     val student = Student(1, "Sabari", 11, 'A')
     student.display() // Calling member function
     println(student.id) // You can see the getter call on 'Decompiled file'

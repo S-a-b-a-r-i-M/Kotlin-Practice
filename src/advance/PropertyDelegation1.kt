@@ -26,6 +26,16 @@ class DelegationProperties {
 
     val currentSubscriberSurName: String
         public get() = observableSubscriber.split(" ").last()
+
+    private var newProp: String = ""
+        set(value) {
+            // field = value
+            newPropChangeObserver()
+        }
+
+    fun newPropChangeObserver() {
+
+    }
 }
 
 fun delegatedProperties(){
@@ -34,7 +44,7 @@ fun delegatedProperties(){
         "Delegation Property - Function"
     }
 
-    println(lazyTopic)
+//    println(lazyTopic)
 
     var observableSubscriber: String by Delegates.observable("") {
         property, oldValue, newValue ->
@@ -57,7 +67,7 @@ fun main() {
     println("******************* LAZY *******************")
 
     val delegationProperties = DelegationProperties()
-    println(delegationProperties.lazyTopic)
+    // println(delegationProperties.lazyTopic)
 
     println()
 
