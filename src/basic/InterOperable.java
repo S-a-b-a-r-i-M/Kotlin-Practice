@@ -71,6 +71,5 @@ public class InterOperable {
 
         // Kotlin Class
         Goat whiteSheep = new Goat();
-        whiteSheep.eat();
     }
 }

@@ -4,7 +4,7 @@ import basic.InterOperable
 
 // OVERRIDING METHODS ALWAYS USE THE BASE METHOD'S DEFAULT PARAMETER VALUES.
 
-open class Animal {
+internal open class Animal {
     // NOTE: by default class and functions are public and final
     @JvmOverloads
     open fun eat(food: String = "gross"){
@@ -12,9 +12,9 @@ open class Animal {
     }
 }
 
-class Goat : Animal() {
+internal class Goat : Money() {
     // NOTE: An overriding function is not allowed to specify default values for its parameters.
-    override fun eat(food: String){
+    fun eat(food: String){
         println("Goat eating $food")
         println(title2)
         println(MyObject.title1)
@@ -49,7 +49,6 @@ fun String.capitalize(): String = this[0].uppercase() + this.substring(1).lowerc
 
 fun main() {
       val goat = Goat()
-      goat.eat()
       Goat.MyObject.title1
       Goat.title2
       Goat.Companion.title2

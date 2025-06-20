@@ -9,12 +9,15 @@ fun String.uppercase(): String {
 }
 
 fun main() {
-    val name = "Kotlin".uppercase()
-    println("Hello, $name!")
+    val RESET = "\u001B[0m"
+    val RED = "\u001B[31m"
+    val GREEN = "\u001B[32m"
+    val YELLOW = "\u001B[33m"
+    val BLUE = "\u001B[34m"
+    val CYAN = "\u001B[36m"
 
-    for (i in 1..5) {
-        println("i = $i")
-    }
+    val name = "Kotlin".uppercase()
+    println("${GREEN}Hello, $name!")
 }
 
 //fun main(args: Array<String>){

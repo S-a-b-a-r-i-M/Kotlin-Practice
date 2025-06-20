@@ -2,7 +2,7 @@ package intermediate;
 
 import kotlin.Unit;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class GenericsJ {
 
