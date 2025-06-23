@@ -22,22 +22,6 @@ class Chocolate : Snack()
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-fun covariance() {
-    val coins: List<Coin> = listOf(Coin(), Coin())
-    val notes: List<CurrencyNote> = listOf(CurrencyNote(), CurrencyNote())
-    val moneys: List<Money> = coins
-}
-
-fun contravariance() {
-
-}
-
-fun invariance() {
-    val coins: MutableList<Coin> = mutableListOf(Coin(), Coin())
-    // val moneys: MutableList<Money> = coins // ERROR
-
-}
-
 // Contract of Interface: VendingMachine will accept any coin and return some kind of snack.
 /*
  * The interface defines the contract boundary (what types are accepted/returned), but each implementation provides predictable behavior within that boundary.
@@ -61,19 +45,23 @@ class ChocolateVendingMachine : VendingMachine {
 fun main() {
     val shape1: Shape = Shape()
     val shape2: Circle = Circle()
-    var shape3: Rect = Rect()
+    val shape3: Rect = Rect()
 
     val shapeBox1: ShapeBox<Shape> = ShapeBox()
-    val shapeBox2: ShapeBox<Circle> = ShapeBox()
+    val shapeBox2: ShapeBox<Circle> = ShapeBox(Circle())
 
     val shapeX: Shape = shape3
     val shapeBoxX: ShapeBox<Shape> = shapeBox2
+    if (shapeBoxX.shape1 is Rect)
+        println("Yes")
+    else
+        println("No")
 }
 
-class ShapeBox<T: Shape>(
+class ShapeBox<out T: Shape>(
     val shape1: T? = null,
     val shape2: T? = null,
-    var shape3: T? = null,
+//    var shape3: T? = null,
 ) {
     fun takeShapesOut(): T? {
         return null
@@ -81,32 +69,19 @@ class ShapeBox<T: Shape>(
 }
 
 open class Shape {
-    fun drawShape() {
-
-    }
+    fun drawShape() { }
 }
 
-open class NoSideShape: Shape() {
+open class NoSideShape: Shape() { }
 
-}
+open class SideShape: Shape() { }
 
-open class SideShape: Shape() {
+open class Circle: NoSideShape() { }
 
-}
+open class Oval: NoSideShape() { }
 
-open class Circle: NoSideShape() {
+open class Rect: SideShape() { }
 
-}
+open class Square: SideShape() { }
 
-open class Oval: NoSideShape() {
-
-}
-
-open class Square: SideShape() {
-
-}
-
-open class Rect: SideShape() {
-
-}
 

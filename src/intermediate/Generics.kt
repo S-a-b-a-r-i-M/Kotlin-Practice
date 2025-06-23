@@ -29,7 +29,7 @@ fun main() {
     val names = arrayOf("Sabari", "Ram", "George")
 
 //    val arrayUtils = ArrayUtils(names) // ERROR: String is Not a subtype of Number.
-    val arrayUtils = ArrayUtils(nums) // the parameters can be inferred, for example, from the constructor arguments
+    val arrayUtils = ArrayUtils(nums) // the parameters can be inferred, from the constructor arguments
     arrayUtils.findElement(104) {
         index, element ->
             if (index != -1)

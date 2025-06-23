@@ -1,12 +1,12 @@
 package advance.coroutine
 
 import kotlinx.coroutines.*
-import kotlinx.coroutines.launch
 import kotlin.system.measureTimeMillis
 
 /*
 fun main() {
     runBlocking { // this: CoroutineScope
+        println("this : $this")
         val job = launch { // launch a new coroutine and continue
             delay(1000) // non-blocking delay for 1 second (default time unit is ms)
             println("Murugan")
@@ -19,20 +19,22 @@ fun main() {
         println("Sabari") // main coroutine continues while a previous one is delayed
         println("job $job")
         job.join() // Waits for the coroutine to complete
-        println("after join job $job")
+        println("after join job: $job")
     }
-    println("\nThis Out of the runBlock prints at last. Because runBlock is blocked the main thread")
+    println("\nThis Out of the runBlock prints at last. Because runBlock blocked the main thread")
 }
-*/
+ */
 
 // CREATING 100,000 CO-ROUTINES
 /*
 suspend fun main() = coroutineScope {
     val time = measureTimeMillis {
-        val jobs = List(100_000) {
+        var oldCount = 0 // 7_00_00_000 Will Result in OutOfMemory Error
+        val jobs = List(1_00_00_000) { count ->
             launch {
                 delay(1000)
-                print(".")
+                print("${count}   ")
+//                oldCount = count
             }
         }
         jobs.forEach { it.join() }
@@ -41,9 +43,27 @@ suspend fun main() = coroutineScope {
 }
 */
 
+// CREATING THREADS
+/*
+fun main() {
+    val time = measureTimeMillis {
+        val threads = List(4100) { count ->
+            Thread {
+                Thread.sleep(1000)
+                print("$count   ")
+            }
+        }
+
+        threads.forEach { it.start() }
+        threads.forEach { it.join() }
+    }
+    println("\nTime taken to execute 1000 coroutines : $time ms")
+}
+*/
+
 
 // Example of Tag team match
-
+/*
 suspend fun tagOut() {
     println("Tagout !")
     yield()
@@ -73,7 +93,7 @@ fun tagMatch() {
 fun main() {
     tagMatch()
 }
-
+*/
 
 // Example of building a house
 enum class Product(val description: String, val delayTime: Long) {
@@ -111,12 +131,12 @@ fun main() {
     work(doors)
 
     val end = System.currentTimeMillis()
-    println("Total time taken to complete the work : ${(end - start) / 1000} seconds")
+    println("Total time taken to complete the work : ${(end - start) / 1000.0} seconds")
 }
 */
 
 // With coroutine
-/*
+
 suspend fun orderProduct(orderItem: String): Product {
     val product = when (orderItem) {
         Product.WINDOWS.description -> Product.WINDOWS
@@ -138,7 +158,7 @@ suspend fun work(item: String) {
 fun main() {
     val start = System.currentTimeMillis()
     // CONCURRENCY
-    /*
+
     runBlocking {
         val windows = async { orderProduct("windows") }
         val doors = async { orderProduct("doors") }
@@ -149,7 +169,6 @@ fun main() {
         }
     }
 
-     */
 
     // PARALLELISM
     /*
@@ -165,6 +184,5 @@ fun main() {
     */
 
     val end = System.currentTimeMillis()
-    println("Total time taken to complete the work : ${(end - start) / 1000.toFloat()} seconds")
+    println("Total time taken to complete the work : ${(end - start) / 1000.0} seconds")
 }
-*/
