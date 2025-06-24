@@ -157,8 +157,9 @@ suspend fun work(item: String) {
 
 fun main() {
     val start = System.currentTimeMillis()
-    // CONCURRENCY
 
+    // CONCURRENCY
+    /*
     runBlocking {
         val windows = async { orderProduct("windows") }
         val doors = async { orderProduct("doors") }
@@ -168,10 +169,10 @@ fun main() {
             work(doors.await().description)
         }
     }
-
+    */
 
     // PARALLELISM
-    /*
+
     runBlocking {
         val windows = async(Dispatchers.IO) { orderProduct("windows") }
         val doors = async(Dispatchers.IO) { orderProduct("doors") }
@@ -181,7 +182,6 @@ fun main() {
             launch{ work(doors.await().description) }
         }
     }
-    */
 
     val end = System.currentTimeMillis()
     println("Total time taken to complete the work : ${(end - start) / 1000.0} seconds")

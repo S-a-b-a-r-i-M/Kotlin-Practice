@@ -45,12 +45,11 @@ class ChocolateVendingMachine : VendingMachine {
 fun main() {
     val shape1: Shape = Shape()
     val shape2: Circle = Circle()
-    val shape3: Rect = Rect()
 
     val shapeBox1: ShapeBox<Shape> = ShapeBox()
     val shapeBox2: ShapeBox<Circle> = ShapeBox(Circle())
 
-    val shapeX: Shape = shape3
+    val shapeX: Shape = shape2
     val shapeBoxX: ShapeBox<Shape> = shapeBox2
     if (shapeBoxX.shape1 is Rect)
         println("Yes")
