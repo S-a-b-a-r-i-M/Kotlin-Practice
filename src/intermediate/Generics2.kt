@@ -49,6 +49,8 @@ fun main() {
     val shapeBox1: ShapeBox<Shape> = ShapeBox()
     val shapeBox2: ShapeBox<Circle> = ShapeBox(Circle())
 
+//    val anyList : MutableList<Any> = mutableListOf<String>()
+
     val shapeX: Shape = shape2
     val shapeBoxX: ShapeBox<Shape> = shapeBox2
     if (shapeBoxX.shape1 is Rect)

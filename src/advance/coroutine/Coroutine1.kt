@@ -63,7 +63,7 @@ fun main() {
 
 
 // Example of Tag team match
-/*
+
 suspend fun tagOut() {
     println("Tagout !")
     yield()
@@ -83,13 +83,21 @@ fun tagMatch() {
         }
         launch {
             println("Undertaker: Big foot 🦶")
+            delay(300)
             tagOut()
             println("Undertaker: Ded Smack ☠️")
             tagOut()
         }
+        launch {
+            println("Kein: Big foot 🦶")
+            delay(1000)
+            tagOut()
+            println("Kein: Ded Smack ☠️")
+            tagOut()
+        }
     }
 }
-
+/*
 fun main() {
     tagMatch()
 }
@@ -172,7 +180,6 @@ fun main() {
     */
 
     // PARALLELISM
-
     runBlocking {
         val windows = async(Dispatchers.IO) { orderProduct("windows") }
         val doors = async(Dispatchers.IO) { orderProduct("doors") }
@@ -181,6 +188,7 @@ fun main() {
             launch{ work(windows.await().description) }
             launch{ work(doors.await().description) }
         }
+        println("All are lauched...")
     }
 
     val end = System.currentTimeMillis()
