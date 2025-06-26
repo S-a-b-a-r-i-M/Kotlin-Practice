@@ -1,10 +1,10 @@
 package intermediate
 
-
 fun main() {
     // Syntax: val lambda = { param1: Type1, param2: Type2 -> body_of_function }
 
     // 1. Simple Lambda
+    /*
     val areaOfCircle: (Double) -> Double = { r: Double -> 3.14 * r * r }
     println("Area of the circle(r=4.2): ${areaOfCircle(4.2)}")
 
@@ -56,4 +56,31 @@ fun main() {
 
     println("\nAddition result: $result1")  // Output: Addition result: 8
     println("Multiplication result: $result2")  // Output: Multiplication result: 15
+
+    */
+
+    // 7. With Receiver Object
+    println("\n--------------------------- With Receiver Object ---------------------")
+    val fullName: String.(String) -> String = { lastName: String -> "$this $lastName" }
+
+    println("Sabari".fullName("Murugan"))
+
+    fun buildFullName(block: String.(String) -> String) {
+        println(block("Sabari", "Murugan"))
+    }
+
+    buildFullName { lastName ->
+        "${this.trim()} ${lastName.trim()}"
+    }
+
+    fun <T> someListOperation (block: List<String>?.() -> T){
+//        block(listOf<String>())
+        listOf<String>().block()
+//        null.block()
+//        block(null)
+    }
+
+    someListOperation {
+        println(this?.size)
+    }
 }

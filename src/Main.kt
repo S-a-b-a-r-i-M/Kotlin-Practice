@@ -4,10 +4,6 @@
 // Cmd + E -> Recent files
 // Cmd + Ctrl + G -> multi line
 
-fun String.uppercase(): String {
-    return ""
-}
-
 fun main() {
     val RESET = "\u001B[0m"
     val RED = "\u001B[31m"
@@ -15,9 +11,10 @@ fun main() {
     val YELLOW = "\u001B[33m"
     val BLUE = "\u001B[34m"
     val CYAN = "\u001B[36m"
+    println("${GREEN}Hello! $RESET")
 
-    val name = "Kotlin".uppercase()
-    println("${GREEN}Hello, $name!")
+    // Cores Count
+    println("Number of cores : ${Runtime.getRuntime().availableProcessors()}")
 }
 
 //fun main(args: Array<String>){

@@ -1,18 +1,63 @@
 package advance.coroutine
 
 import kotlinx.coroutines.*
+import kotlin.random.Random
 
-
-fun main() {
+suspend fun main() {
 //    dispatchers()
+
+//    dispatchersThreadLimit()
+
+    runBlockVsCoroutineScope()
+    println("Welcome 🙏")
+}
+
+suspend fun runBlockVsCoroutineScope() {
     runBlocking {
         launch {
-            delay(1000)
-            println("World")
+            delay(200)
+            println("Inside run blocking...i'll block the calling thread")
+            delay(100)
         }
     }
-    println("Hello")
+    println("Welcome runBlocking 🙏")
+}
 
+suspend fun dispatchersThreadLimit() {
+    println("\n------------------------- Dispatchers.Default -------------------------")
+    coroutineScope {
+        // Dispatchers.Default Using all the cores (each core with 1 thread)
+        repeat(200) {
+            launch {
+                List(1_000) { Random.nextBytes(5) } // Giving some work
+                println("Running on thread: ${Thread.currentThread().name}")
+            }
+        }
+    }
+
+    println("\n------------------------- Dispatchers.IO -------------------------")
+    // The 64-thread limit for Dispatchers.IO is a soft limit, not a hard ceiling.
+    coroutineScope {
+        // Dispatchers.Default Using all the cores (each core with 1 thread)
+        repeat(2000) {
+            launch (Dispatchers.IO) {
+                List(1_00_000) { Random.nextBytes(5) } // Giving some work
+                if (Thread.currentThread().name.contains("DefaultDispatcher-worker-7"))
+                    println("Running on thread: ${Thread.currentThread().name}")
+            }
+        }
+    }
+
+    println("\n------------------------- Dispatchers.Unconfined -------------------------")
+    coroutineScope {
+        // Dispatchers.Default Using all the cores (each core with 1 thread)
+        repeat(100) {
+            launch (Dispatchers.Unconfined) {
+                List(1_000) { Random.nextBytes(5) } // Giving some work
+                println("Running on thread: ${Thread.currentThread().name}")
+            }
+        }
+    }
 }
 
 @OptIn(DelicateCoroutinesApi::class, ExperimentalCoroutinesApi::class)

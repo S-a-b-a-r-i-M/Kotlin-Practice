@@ -1,17 +1,15 @@
 package advance.coroutine
 
 import kotlinx.coroutines.*
-import kotlin.system.measureTimeMillis
 
-/*
 fun main() {
-    runBlocking { // this: CoroutineScope
+    val result = runBlocking<String> { // this: CoroutineScope
         println("this : $this")
         val job = launch { // launch a new coroutine and continue
             delay(1000) // non-blocking delay for 1 second (default time unit is ms)
             println("Murugan")
         }
-        launch {
+        this.launch {
             delay(500)
             print(" ")
         }
@@ -20,10 +18,12 @@ fun main() {
         println("job $job")
         job.join() // Waits for the coroutine to complete
         println("after join job: $job")
+        "Run Blocking is completed"
     }
-    println("\nThis Out of the runBlock prints at last. Because runBlock blocked the main thread")
+    println()
+    println(result)
+    println("This Out of the runBlock prints at last. Because runBlock blocked the main thread")
 }
- */
 
 // CREATING 100,000 CO-ROUTINES
 /*
@@ -162,7 +162,7 @@ suspend fun work(item: String) {
     delay(1000)
     println("WORK COMPLETED -> installed $item")
 }
-
+/*
 fun main() {
     val start = System.currentTimeMillis()
 
@@ -194,3 +194,4 @@ fun main() {
     val end = System.currentTimeMillis()
     println("Total time taken to complete the work : ${(end - start) / 1000.0} seconds")
 }
+*/
