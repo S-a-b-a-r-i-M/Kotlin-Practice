@@ -99,45 +99,45 @@ suspend fun demonstrateCS() {
             val user1Data = async { fetchUserWithCS(1) }
             val user2Data = async { fetchUserWithCS(2) }
 
-            println("⏳ Both operations started, doing other work...")
-            println("💭 Current thread: ${Thread.currentThread().name}")
+            println("Both operations started, doing other work...")
+            println("Current thread: ${Thread.currentThread().name}")
 
             // We could do other work here while waiting
             repeat(3) {
                 delay(500)
-                println("🔄 Doing other work while waiting... step ${it + 1}")
+                println("Doing other work while waiting... step ${it + 1}")
             }
 
             // Collect results
-            println("\n📊 Results:")
+            println("\nResults:")
             println("User 1: ${user1Data.await()}")
             println("User 2: ${user2Data.await()}")
         }
     }
 
-    println("⏱️ Total time: ${time}ms")
+    println("Total time: ${time}ms")
 }
 
 fun demonstrateRB() {
     println("\n==================== RUN BLOCKING DEMO ====================")
-    println("🔒 This WILL block the calling thread")
+    println("This WILL block the calling thread")
 
     val time = measureTimeMillis {
         // This blocks the thread completely
         val user1Data = fetchUserWithRB(1)
-        println("📊 User 1 data: $user1Data")
+        println("User 1 data: $user1Data")
 
         // This can only start after the first one completes
         val user2Data = fetchUserWithRB(2)
-        println("📊 User 2 data: $user2Data")
+        println("User 2 data: $user2Data")
     }
 
-    println("⏱️ Total time: ${time}ms")
+    println("Total time: ${time}ms")
 }
 
 fun main() {
     runBlocking {
-        println("🎯 COROUTINE SCOPE vs RUN BLOCKING DEMONSTRATION")
+        println("COROUTINE SCOPE vs RUN BLOCKING DEMONSTRATION")
         println("Main thread: ${Thread.currentThread().name}")
 
         // Demo 1: Performance comparison

@@ -9,7 +9,7 @@ fun compare(){
     println("$userName1.equals($userName2) : ${userName1.equals(userName2)}")
     // YOU CAN SEE THE SAME HASHCODE BECAUSE OF THE STRING POOL CONCEPT(not creating separate memory for same string object)
     println("HashCodes of, userName1:${System.identityHashCode(userName1)} userName2:${System.identityHashCode(userName2)}")
-
+    "".startsWith("")
     // IgnoreCase
 }
 

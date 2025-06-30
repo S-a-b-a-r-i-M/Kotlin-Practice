@@ -6,7 +6,7 @@ enum class NotificationType {
     PUSH,
 }
 
-abstract class NotificationService(){
+abstract class NotificationService {
     abstract fun send(message: String): Boolean
 }
 
