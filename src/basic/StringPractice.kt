@@ -1,5 +1,6 @@
 package basic
 
+
 fun compare(){
     var userName1: String = "Sabari"
     var userName2: String = "Sabari"
@@ -14,5 +15,10 @@ fun compare(){
 }
 
 fun main() {
-    compare()
+    val reference = ::compare
+    println(reference())
+
+    val numberRegex = "\\d+".toRegex()
+    val strings = listOf("abc", "124", "a70")
+    println(strings.filter(numberRegex::matches))
 }

@@ -32,6 +32,7 @@ class TransformerJ implements Car {
 }
 
 class InterOperable {
+    public String myField;
     public static void main(String[] args) {
         TransformerJ shiftT = new TransformerJ();
 //        shiftT.stop();

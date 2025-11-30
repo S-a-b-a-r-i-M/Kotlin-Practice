@@ -1,3 +1,4 @@
+import intermediate.Vehicle
 
 // This basic.crackers.main function is the entry point of Kotlin.
 
@@ -15,6 +16,11 @@ fun main() {
 
     // Cores Count
     println("Number of cores : ${Runtime.getRuntime().availableProcessors()}")
+
+    // References (Kotlin Reflection)
+    println("${Vehicle::class} \n${Vehicle()::class} \n${Vehicle::class.java}")
+
+    println("180" as? Int)
 }
 
 //fun main(args: Array<String>){

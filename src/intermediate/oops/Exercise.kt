@@ -52,6 +52,7 @@ class Transformer2(override var model: String, override val name: String, var mo
 }
 
 private class EvCar2(override var model: String) : Car {
+    public val myField = ""
     override fun start() {
         println("EvCar started")
     }

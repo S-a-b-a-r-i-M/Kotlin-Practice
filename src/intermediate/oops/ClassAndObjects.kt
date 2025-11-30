@@ -70,9 +70,10 @@ interface Count {
 
 // Class without primary constructor
 class Bike{
-    var model = ""
-    var brand = ""
-    var year = 0
+    var model: String
+    var brand: String
+    var year: Int
+    lateinit var person: Person // Non-nullable
 
     // COMPANION OBJECT
     companion object: Count { // It can implements interface
@@ -148,4 +149,19 @@ fun main() {
     sabari.fullName = "Sabari M"
     println("Sabari's Full-name ${sabari.fullName}")
      */
+
+    UserTableCls()
+    UserTable
+}
+
+class UserTableCls {
+    val name: String = "" // ERROR
+
+    companion object {
+        const val nameC: String = "" // Working
+    }
+}
+
+object UserTable {
+    const val TABLE_NAME = "t_user" // Working
 }

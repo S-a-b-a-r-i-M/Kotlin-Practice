@@ -1,11 +1,13 @@
 package intermediate.collections
 
 fun main() {
-    println("=== IMMUTABLE MAP OPERATIONS ===\n")
-    demonstrateImmutableMapOperations()
+    // println("=== IMMUTABLE MAP OPERATIONS ===\n")
+    // demonstrateImmutableMapOperations()
 
-    println("\n=== MUTABLE MAP OPERATIONS ===\n")
-    demonstrateMutableMapOperations()
+    // println("\n=== MUTABLE MAP OPERATIONS ===\n")
+    // demonstrateMutableMapOperations()
+
+    demonstratePractice()
 }
 
 fun demonstrateImmutableMapOperations() {
@@ -185,4 +187,15 @@ fun demonstrateMutableMapOperations() {
         putAll(mapOf("third" to 3, "fourth" to 4))
     }
     println("Built map: $builtMap")
+}
+
+fun demonstratePractice() {
+    data class MutablePerson(var id: Int, var name: String)
+
+    val map = mutableMapOf<MutablePerson, Int>()
+    val p = MutablePerson(1, "sabari")
+    map[p] = p.id
+
+    p.id = 401 // modifies hashCode result!
+    println(map[p]) // ❌ may not find it anymore but for normal class it'll work
 }
