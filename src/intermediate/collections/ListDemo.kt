@@ -190,10 +190,11 @@ fun main() {
     println("Empty list class: ${listOf<Int>()::class}")
     println("Single element list class: ${listOf<Int>(123)::class}")
     println("Multi element list class: ${listOf<Int>(123, 456, 789)::class}")
+    println("Generating List: ${List(10) {it * 1.9}}")
 
 //    immutableList()
 
 //    mutableList()
 
-    randomWorks()
+//    randomWorks()
 }

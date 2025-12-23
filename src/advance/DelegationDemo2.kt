@@ -69,7 +69,7 @@ fun main() {
     println("After removed 20 from list: ${recoverableList.joinToString()}")
 
     val deletedElement = recoverableList.recoverRecentElement()
-    if (deletedElement != null){
+    if (deletedElement != null) {
         recoverableList.add(deletedElement)
         println("After recovery: ${recoverableList.joinToString()}")
     }

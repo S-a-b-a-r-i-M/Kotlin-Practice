@@ -1,10 +1,12 @@
 package advance.coroutine
 
+import advance.coroutine.ApiClient.httpClient
 import kotlinx.coroutines.*
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse
+import kotlin.coroutines.CoroutineContext
 import kotlin.system.measureTimeMillis
 
 object ApiClient {
@@ -33,6 +35,18 @@ object ApiClient {
     }
 }
 
+fun fetchUserASyncWrapper(userId: Int, callback: (String?, Throwable?) -> Unit) {
+    CoroutineScope(Dispatchers.IO).launch {
+        try {
+            val res = ApiClient.fetchUserASync(userId)
+            callback(res, null)
+        } catch (exp: Exception) {
+            println(exp)
+            callback(null, exp)
+        }
+    }
+}
+
 fun main() {
     val numberOfReq = 15
     val userIds = (1..numberOfReq).toList()
@@ -53,7 +67,7 @@ fun main() {
     val asyncTime = measureTimeMillis {
         runBlocking {
             val users = userIds.map { userId ->
-                println("  → Sending request for user $userId...")
+                println("  → Fetching user $userId...")
                 async {
                     ApiClient.fetchUserASync(userId)
                 }

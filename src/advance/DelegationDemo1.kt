@@ -6,7 +6,8 @@ interface MusicInstrument {
 }
 
 class Piano : MusicInstrument {
-    private var isPedalsPressed = false
+    var isPedalsPressed = false
+        private set
 
     override fun makeSound() {
          println("piano...piano")

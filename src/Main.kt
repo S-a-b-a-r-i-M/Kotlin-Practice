@@ -18,11 +18,11 @@ fun main() {
     println("Number of cores : ${Runtime.getRuntime().availableProcessors()}")
 
     // References (Kotlin Reflection)
-    println("${Vehicle::class} \n${Vehicle()::class} \n${Vehicle::class.java}")
+    println("${Vehicle::class}, \n${Vehicle()::class}, \n${Vehicle::class.java}")
 
     println("180" as? Int)
 }
 
-//fun main(args: Array<String>){
-//    print(args.contentToString())
+//fun main(args: Array<String>) {
+//  print(args.contentToString())
 //}
