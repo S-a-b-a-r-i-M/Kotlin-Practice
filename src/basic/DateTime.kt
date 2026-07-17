@@ -76,6 +76,7 @@ fun main() {
     println("LocalDateTime: ${LocalDateTime.now()}")
     formatEpochTime(1753133136)
  */
+    /*
     val datetimeStr = "30/08/2025 : 04" // This is my local date time
     val epochTime = datetimeStr.toEpochSeconds()
     println("It should be, 30/08/2025 = ${epochTime.fromEpochSeconds()}")
@@ -87,4 +88,7 @@ fun main() {
     val epochSeconds = localDateTime.atZone(ZoneId.systemDefault()).toEpochSecond()
     println("Epoch second for $datetimeStr : $epochSeconds")
     println("Locale Date Time $epochSeconds : ${epochSeconds.fromEpochSeconds("dd/MM/yyyy : HH")}")
+     */
+
+    dateTimeManipulation()
 }
