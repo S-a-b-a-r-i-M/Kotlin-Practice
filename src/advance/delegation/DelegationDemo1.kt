@@ -1,4 +1,4 @@
-package advance
+package advance.delegation
 
 interface MusicInstrument {
     fun makeSound()

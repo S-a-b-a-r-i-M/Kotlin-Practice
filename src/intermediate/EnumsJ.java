@@ -38,10 +38,10 @@ public class EnumsJ {
     public static void main(String[] args) {
         TEA favTea = getFavTea();
         switch (favTea){ // It won't enforce to check every case
-            case TEA.GINGER_TEA:
+            case GINGER_TEA:
                 System.out.println("GINGER_TEA");
                 break;
-            case TEA.SUKKU_TEA:
+            case SUKKU_TEA:
                 System.out.println("SUKKU_TEA");
                 break;
         }

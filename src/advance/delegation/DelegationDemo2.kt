@@ -1,4 +1,4 @@
-package advance
+package advance.delegation
 
 import java.util.LinkedList
 
@@ -120,7 +120,7 @@ interface AB {
 }
 
 interface C: A, B, AB {
-    // override fun addX() = super<advance.B>.addB()
+    // override fun addX() = super<advance.delegation.B>.addB()
     fun addC()
 }
 

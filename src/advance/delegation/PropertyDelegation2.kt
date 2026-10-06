@@ -1,7 +1,6 @@
-package advance
+package advance.delegation
 
 import kotlin.properties.Delegates
-import kotlin.properties.ObservableProperty
 import kotlin.reflect.KProperty
 
 // ***************************** STANDARD LIBRARY DELEGATE *****************************

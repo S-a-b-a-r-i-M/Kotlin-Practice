@@ -1,4 +1,9 @@
 import intermediate.Vehicle
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.addJsonObject
+import kotlinx.serialization.json.buildJsonArray
+import kotlinx.serialization.json.putJsonArray
+import kotlinx.serialization.json.putJsonObject
 
 // This basic.crackers.main function is the entry point of Kotlin.
 
